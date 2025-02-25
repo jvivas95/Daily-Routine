@@ -1,0 +1,111 @@
+#contenedorPublicaciones{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #FFA366;
+
+
+}
+#tituloCrearRutinas{
+    text-align: center;
+    font-size: 4.7rem;
+    font-family: impact;
+    letter-spacing: 0.1em; /* Ajusta este valor según el espacio que desees */
+    color: white; /* Para que el borde negro sea visible */
+    text-shadow: 
+        -3px -3px 0 #000,  
+        3px -3px 0 #000,
+        -3px 3px 0 #000,
+        3px 3px 0 #000; /* Crea un borde negro */
+}
+#container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    padding-top: 30px;
+    max-height: auto;
+    overflow-y: auto;
+}
+.caja {
+    width: 80%;
+    height: auto;
+    border: 3px solid black;
+    color: black;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.349);
+    border-radius: 4px;
+}
+#cabeceraPublicacion {
+    display: flex;
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+  }
+  #tituloPublicacion {
+    text-align: center;
+    background-color: #00000000;
+    color: #000;
+    font-weight: bold;
+    font-family: verdana;
+    border: 2px solid black;
+    margin: 8px;
+  }
+  #separadorCabecera {
+    width: 80%; /* Ajustar según sea necesario */
+    border-bottom: 3px solid black;
+    margin-top: 5px; /* Espacio entre la información y el separador */
+    margin: 0 auto;
+    margin-bottom: 6px;
+  }
+#nUsuario{
+    width: auto;
+    height: auto;
+    margin: 6px;
+}
+#fechaPublicacion{
+    width: auto;
+    height: auto;
+    margin: 6px;
+    text-align: right;
+}
+#publicacion{
+    width: auto;
+    height: auto;
+}
+#textoPublicacion{
+    margin: 6px;
+    width: 98%;
+    height: 100px;
+    background-color: #00000000;
+    color: #000;
+    border: 2px solid black;
+
+}
+#separadorPublicacion {
+    width: 95%; /* Ajustar según sea necesario */
+    border-bottom: 3px solid black;
+    margin-top: 5px; /* Espacio entre la información y el separador */
+    margin: 0 auto;
+  }
+#contenedorBotones{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:right;
+}
+  #publicar{
+    width: 9rem;
+    height: 3rem;
+    padding: 4px;
+    background-color:black;
+    border: 2px solid white;
+    font-family: monospace;
+    font-size: 1.3rem;
+    font-weight: 2px;
+}
+
+
