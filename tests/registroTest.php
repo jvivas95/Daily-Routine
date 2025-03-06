@@ -20,7 +20,7 @@ class RegistroTest extends TestCase
 
         //Conexión a la base de datos
 
-        $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+        $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
         // Ejecuta el método registroUsuario con los datos de prueba
        $resultado= $servicioRegistro->registroUsuario($nombre, $apellidos, $edad, $email, $genero,  $contrasena);

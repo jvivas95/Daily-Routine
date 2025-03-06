@@ -7,7 +7,7 @@ class servicioContacto {
 
 
         // Realizar la conexión a la base de datos
-        $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+        $conexion = new mysqli("localhost", "root", "", "dailyroutine");
 
         // Verificar la conexión
         if ($conexion->connect_error) {

@@ -38,16 +38,16 @@ function usuario_autenticado() {
             <?php if (usuario_autenticado()): ?>
                 <li class="nav-item">
                 <li class="nav-item">
-                <a class="nav-link" href="/rutinasApp-proyecto/vistas/crearRutina.php"> ¡GO! RUTINAS</a>
+                <a class="nav-link" href="../crearRutina.php"> ¡GO! RUTINAS</a>
               
                 <li class="nav-item">
-                    <a class="nav-link" href="/rutinasApp-proyecto/vistas/contact.php">CONTACTO</a>
+                    <a class="nav-link" href="../contact.php">CONTACTO</a>
                 </li>
                 </li>
-                    <a class="nav-link" href="/rutinasApp-proyecto/vistas/logout.php">CERRAR SESIÓN</a>
+                    <a class="nav-link" href="./logout.php">CERRAR SESIÓN</a>
                 </li>
             <?php else: 
-                header('Location: ./vistas/login.php');
+                header('Location: ./login.php');
                 exit();
               ?>
                 

@@ -11,7 +11,7 @@ class ServicioRegistro  {
         $errores = array();
 
 // Realizar la conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "proyectoifp");
+$conexion = new mysqli("localhost", "root", "", "dailyroutine");
 
 // Verificar la conexión
 if ($conexion->connect_error) {
@@ -88,7 +88,7 @@ if (!empty($errores)) {
     $statement->bind_param("ssisss", $nombre, $apellidos, $edad, $email, $genero, $hash_contrasena);
     if ($statement->execute()) {
 
-        header("location: /rutinasApp-proyecto/vistas/login.php");
+        header("location: ../../vistas/login.php");
        
         
     } else {

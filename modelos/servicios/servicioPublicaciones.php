@@ -5,7 +5,7 @@
         public function crearPublicacion($id_usuario, $titulo, $descripcion, $fecha){
 
                 // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
 
             // Verificar la conexión
             if ($conexion->connect_error) {
@@ -35,7 +35,7 @@
 
         public function listarPublicaciones() {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
             // Verificar la conexión
             if ($conexion->connect_error) {
@@ -69,7 +69,7 @@
 
         public function listarPublicacionesUsuario($nombreUsuario) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
             // Verificar la conexión
             if ($conexion->connect_error) {
@@ -114,7 +114,7 @@
 
         public function borrarPublicacion($id_publicacion) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
             // Verificar la conexión
             if ($conexion->connect_error) {
@@ -152,7 +152,7 @@
         
         public function modificarPublicacion($publicacion) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
             // Verificar la conexión
             if ($conexion->connect_error) {
@@ -188,7 +188,7 @@
 
         public function obtenerPublicacionPorId($id) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "proyectoifp");
+            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
         
             // Verificar la conexión
             if ($conexion->connect_error) {

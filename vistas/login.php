@@ -34,6 +34,8 @@
         <?php
     include "../lib/autenticacion.php";
     include_once "../lib/GestorBD.php";
+    include_once '../config/config.php';
+
     $conex = new GestorBD();
 
     $conex->conectar();
@@ -49,7 +51,7 @@
         
 
         if (Autenticacion::autenticar($_POST["nombre"], $_POST["contrasena"])){
-          header("location: ../vistas/verRutinas.php");
+          header("location: ../vistas/inicio.php");
           //exit();
         } else {
            $error_message = "Usuario y/o contraseña incorrectos";
@@ -60,7 +62,7 @@
     <main class="form-signin w-100 m-auto">
         <!-- Formulario de inicio de sesión -->
         <form method="POST" action="login.php">
-        <a href="../index.php">
+        <a href="<?php echo BASE_URL;?>/vistas/login.php">
     <img class="mb-4" src="../assets/img/logo.png" alt="" width="300px" style="margin-top: 150px;">
 </a>
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
