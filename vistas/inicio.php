@@ -2,7 +2,7 @@
 <html lang="es" data-bs-theme="auto">
 
 <head>
-  <script src="/rutinasApp-proyecto/assets/js/color-modes.js"></script>
+  <script src="<?php echo(BASE_URL) ?>/assets/js/color-modes.js"></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,13 +18,11 @@
   <link href="/rutinasApp-proyecto/assets/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="/rutinasApp-proyecto/assets/css/carousel.css" rel="stylesheet">
+  <link href="<?php echo(BASE_URL) ?>/assets/css/carousel.css" rel="stylesheet">
 </head>
 <body>
   <!-- HEADER -->
-  <?php
-    include "inc/header.php";
-  ?>
+
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path
