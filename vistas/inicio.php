@@ -1,9 +1,13 @@
+<?php 
+  
+  include_once "./config/config.php";
+  include_once "./vistas/inc/header.php";
+  
+?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">
 
 <head>
-
-<?php include_once "../config/config.php" ?>
 
   <script src="<?php echo(BASE_URL) ?>/assets/js/color-modes.js"></script>
 
@@ -13,6 +17,8 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.122.0">
   <title>DAYLY ROUTINE</title>
+
+
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
   
