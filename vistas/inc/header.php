@@ -1,5 +1,5 @@
 <?php 
-  include_once "./config/config.php"; 
+  include_once "../config/config.php"; 
 ?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">
@@ -31,19 +31,24 @@
 <header data-bs-theme="dark">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <img src="<?php echo (BASE_URL) ?>/assets/img/logo.png" style="width: 10%; padding: 5px;" alt="Logo"/>
+      <img src="<?php echo (BASE_URL) ?>/assets/img/logo.png" style="width: 25%; padding: 5px;" alt="Logo"/>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <?php if (Autenticacion::estaAutenticado()){?>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/login.php">Autenticado </a>
+          </li>
+          <?php } else { ?>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/login.php">Iniciar Sesión / </a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/registro.php">Registrarse</a>
           </li>
+          <?php } ?>
           <!-- AÑADIR MAS ITEMS
           <li class="nav-item">
             <a class="nav-link active" aria-current="page">SOCIAL</a>
