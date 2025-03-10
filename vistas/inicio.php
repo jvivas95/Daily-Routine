@@ -1,16 +1,16 @@
 <?php 
-include_once "./config/config.php";
+include_once __DIR__."/../config/config.php";
 #HEADER
-include_once "./vistas/inc/header.php";
+include_once __DIR__."/inc/header.php";
 ?>
 <!-- BODY -->
 <main>
   <?php
-  include_once "./vistas/inc/carousel.php";
-  include_once "./vistas/inc/features.php";
+  include_once __DIR__."/inc/carousel.php";
+  include_once __DIR__."/inc/features.php";
   ?>
 </main>
 <!-- FOOTER -->
 <?php
-include_once "./vistas/inc/footer.php";
+include_once __DIR__."/inc/footer.php";
 ?>

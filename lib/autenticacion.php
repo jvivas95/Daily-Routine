@@ -1,5 +1,5 @@
 <?php 
-include "../modelos/servicios/servicioAutenticacion.php";
+include __DIR__."/../modelos/servicios/servicioAutenticacion.php";
 
 class Autenticacion{
 

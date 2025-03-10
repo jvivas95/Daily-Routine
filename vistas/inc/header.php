@@ -1,5 +1,6 @@
 <?php 
-  include_once "../config/config.php"; 
+  include_once __DIR__."/../../lib/autenticacion.php";
+  include_once __DIR__."/../../config/config.php";
 ?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">
