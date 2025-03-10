@@ -37,16 +37,18 @@
       </button>
       
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/rutinasApp-proyecto/index.php">HOME</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/login.php">Iniciar Sesión / </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/rutinasApp-proyecto/vistas/contact.php">CONTACTO</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/registro.php">Registrarse</a>
           </li>
+          <!-- AÑADIR MAS ITEMS
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">SOCIAL</a>
+            <a class="nav-link active" aria-current="page">SOCIAL</a>
           </li>
+          -->
         </ul>
       </div>
     </div>
