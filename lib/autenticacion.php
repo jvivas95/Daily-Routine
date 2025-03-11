@@ -1,5 +1,7 @@
 <?php 
-include __DIR__."/../modelos/servicios/servicioAutenticacion.php";
+include_once __DIR__."/../modelos/servicios/servicioAutenticacion.php";
+include_once __DIR__."/../config/config.php";
+
 
 class Autenticacion{
 
@@ -63,6 +65,15 @@ class Autenticacion{
             //echo "No se encontró la cookie del usuario.<br>";
             return '';
         }
+    }
+
+    public static function cerrarSesion(){
+        if (session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
+        session_unset();
+        session_destroy();
+        header("Location: ".BASE_URL."/index.php");
     }
 }
 ?> 

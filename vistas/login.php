@@ -16,9 +16,9 @@
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <?php
     //INCLUDES
-    include "../lib/autenticacion.php";
-    include_once "../lib/GestorBD.php";
-    include_once '../config/config.php';
+    include_once __DIR__."/../lib/autenticacion.php";
+    include_once __DIR__."/../lib/GestorBD.php";
+    include_once __DIR__."/../config/config.php";
     //CONEXION A LA BBDD
     $conex = new GestorBD();
     $conex->conectar();

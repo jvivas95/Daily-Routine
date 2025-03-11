@@ -32,7 +32,9 @@
 <header data-bs-theme="dark">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <img src="<?php echo (BASE_URL) ?>/assets/img/logo.png" style="width: 25%; padding: 5px;" alt="Logo"/>
+      <a href="<?php echo BASE_URL?>/index.php">
+        <img src="<?php echo (BASE_URL) ?>/assets/img/logo.png" style="width: 25%; padding: 5px;" alt="Logo"/>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,7 +42,15 @@
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           <?php if (Autenticacion::estaAutenticado()){?>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/login.php">Autenticado </a>
+            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/verRutinas.php">
+              <?php echo Autenticacion::obtenerUsuario(); ?>
+            </a>
+          </li>
+          <li class="nav-item">
+              <div style="border-top: 1px solid white; width: 100%;"></div>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<?php echo(BASE_URL)?>/vistas/logout.php"> Cerrar sesión</a>
           </li>
           <?php } else { ?>
           <li class="nav-item">
