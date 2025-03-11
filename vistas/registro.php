@@ -2,6 +2,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include_once __DIR__."/../config/config.php";
+
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -12,7 +15,7 @@ error_reporting(E_ALL);
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>DAYLY ROUTINE</title>
+    <title>Registro</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -117,7 +120,7 @@ error_reporting(E_ALL);
           </symbol>
         </svg>
         <main class="form-signin w-100 m-auto">
-    <form method="POST" action="../modelos/modeloRegistro.php">
+    <form method="POST" action="<?php echo BASE_URL?>/modelos/modeloRegistro.php">
         <!-- Punto de depuración: Imagen del logo -->
         <a href="../index.php">
           <img class="mb-4" src="../assets/img/logo.png" alt="" width="300px" style="margin-top: 150px;">

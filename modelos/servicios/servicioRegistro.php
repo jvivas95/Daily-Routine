@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+include_once __DIR__."/../../config/config.php";
 
 class ServicioRegistro  {
 
@@ -88,7 +89,7 @@ if (!empty($errores)) {
     $statement->bind_param("ssisss", $nombre, $apellidos, $edad, $email, $genero, $hash_contrasena);
     if ($statement->execute()) {
 
-        header("location: ../../vistas/login.php");
+        header("location: ".BASE_URL."/vistas/login.php");
        
         
     } else {

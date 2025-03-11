@@ -63,7 +63,7 @@
                 <label class="form-check-label" for="flexCheckDefault">Remember me</label>
             </div>
             <button class="btn btn-primary w-100 py-2, margen-inferior" type="submit" style="margin-bottom: 10px;">Sign in</button>
-            <a href="registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
+            <a href="<?php echo BASE_URL ?>/vistas/registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
         </form>
     </main>
