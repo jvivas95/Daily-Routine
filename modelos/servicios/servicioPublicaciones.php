@@ -24,12 +24,15 @@
 
         $statement->bind_param("isss",$id_usuario, $titulo, $descripcion,$fecha);
 
-        $statement->execute();
+        $resultado = $statement->execute();
 
+        //Cierra la consulta y la sesion
         $statement->close();
 
         $conexion->close();
 
+        //Devuelve el resultado de la ejecución
+        return $resultado;
 
         }
 

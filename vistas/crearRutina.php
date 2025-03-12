@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Contacto</title>
+    <title>Publicar</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -24,14 +24,15 @@
 
   <!-- SIDEBAR -->
   <?php
-  include "inc/header.php";
-  include("inc/navigatorColum.php");
+  include_once __DIR__.("/inc/header.php");
+  include_once __DIR__.("/inc/navigatorColum.php");
+  include_once __DIR__.("/../config/config.php");
   ?>
 
   <!-- CABECERA CREAR PUBLICACIONES -->
   <div id="contenedorPublicaciones">
-  <div id="tituloCrearRutinas">CREAR PUBLICACION</div>
-      <form method="POST" action="../modelos/modeloCrearPubli.php">
+  <div id="tituloCrearRutinas">NUEVA PUBLICACION</div>
+      <form method="POST" action="<?php echo BASE_URL?>/modelos/modeloCrearPubli.php">
       <div id="container">
           <div class="caja">
               <div id="cabeceraPublicacion">
