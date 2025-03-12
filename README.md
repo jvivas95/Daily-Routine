@@ -2,7 +2,8 @@
 Ya tengo la página principal "index.php" me falta enrutar el login que me deribe a las publicaciones y después devería revisar el enrutamiento de Crear cuenta. - OK
 Revisar el Registro - OK
 
-Revisar el Crear una publicación 
+Revisar el Crear una publicación - OK
+Falta corregir e introducir un condicional para que a la hora de crear una rutina me salte un mensaje en la misma página de Crear rutina
 
 ERRORES:
 Si hay un usuario con el mismo nombre da error en la contraseña, te pide la del ultimo usuario introducido.
