@@ -2,6 +2,9 @@
 include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
 include "./../lib/autenticacion.php"; 
 
+//VERIFICAR SI EL USUARIO ESTA AUTENTICADO
+Autenticacion::estaAutenticado();
+
 // Crear una instancia del servicio
 $servicioPublicaciones = new servicioPublicaciones();
 
@@ -34,15 +37,6 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
 </head>
 
 <body>
-<?php
-        if (session_status() === PHP_SESSION_NONE){
-            session_start();
-        }
-// Función para comprobar si el usuario está autenticado
-function usuario_autenticado() {
-    return isset($_SESSION['usuario']); 
-}
-?>
 
     <div id="paginaPublicaciones">
         <!-- SIDEBAR -->

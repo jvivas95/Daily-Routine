@@ -82,7 +82,8 @@
             // Consulta SQL para listar las publicaciones del usuario con el nombre especificado
             $sql = "SELECT rutina.* FROM rutina 
                     INNER JOIN usuario ON rutina.user_id = usuario.user_id 
-                    WHERE usuario.nombre = ?";
+                    WHERE usuario.nombre = ?
+                    ORDER BY rutina.fechaHora DESC";
         
             // Preparar la declaración SQL
             $stmt = $conexion->prepare($sql);

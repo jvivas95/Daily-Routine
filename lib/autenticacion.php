@@ -13,6 +13,10 @@ class Autenticacion{
         if (session_status() === PHP_SESSION_NONE){
         session_start();
         }
+        if(!isset($_SESSION['usuario'])){
+            header("Location: ".BASE_URL."/vistas/login.php");
+            exit();
+        }
         return isset($_SESSION[self::claveUsuario]);
     }
 

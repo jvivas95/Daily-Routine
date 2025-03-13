@@ -43,13 +43,11 @@ $publicacion = new servicioPublicaciones();
 
 if ($publicacion->crearPublicacion($usuario_id, $titulo, $descripcion, $fecha)) {
     echo "<script>
-        alert('Publicación creada correctamente');
-        window.location.href = '../vistas/verRutinas.php';
+        window.location.href = '".BASE_URL."/vistas/perfilUser.php';
       </script>";
 } else {
     echo "<script>
         alert('Error al crear la publicación');
-        window.location.href = '".BASE_URL."/vistas/crearRutina.php';
       </script>";
 }
 
