@@ -3,7 +3,9 @@ include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
 include "./../lib/autenticacion.php"; 
 
 //VERIFICAR SI EL USUARIO ESTA AUTENTICADO
-Autenticacion::estaAutenticado();
+if (!Autenticacion::estaAutenticado()){
+    header("Location: ".BASE_URL."/vistas/login.php");
+}
 
 // Crear una instancia del servicio
 $servicioPublicaciones = new servicioPublicaciones();

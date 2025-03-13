@@ -8,17 +8,13 @@ class Autenticacion{
     const claveUsuario = "usuario";
     const cookieUsuario = "usuario";
 
-    public static function estaAutenticado(){
-        // Debugging: Mostrar si el usuario está autenticado
-        if (session_status() === PHP_SESSION_NONE){
+    public static function estaAutenticado(){ 
+    // Debugging: Mostrar si el usuario está autenticado
+    if (session_status() === PHP_SESSION_NONE){
         session_start();
-        }
-        if(!isset($_SESSION['usuario'])){
-            header("Location: ".BASE_URL."/vistas/login.php");
-            exit();
-        }
-        return isset($_SESSION[self::claveUsuario]);
     }
+    
+    return isset($_SESSION[self::claveUsuario]); }
 
     public static function obtenerUsuario(){
 
