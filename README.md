@@ -5,7 +5,8 @@ Revisar el Registro - OK
 Revisar el Crear una publicación - OK
 Falta corregir e introducir un condicional para que a la hora de crear una rutina me salte un mensaje en la misma página de Crear rutina - OK (Se quita mensaje de publicacióon creada y solo se redirije a la página de publicaciones del usuario)
 Reeinvertir el orden de las rutinas - Ok
-Corregir que el usuario no pueda ver ninguna página si no ha iniciado sesion.
+Corregir que el usuario no pueda ver ninguna página si no ha iniciado sesion. - OK
+Corregir el tamaño de las pags. de las publicaciones
 
 ERRORES:
 Si hay un usuario con el mismo nombre da error en la contraseña, te pide la del ultimo usuario introducido.

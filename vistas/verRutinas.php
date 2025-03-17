@@ -40,12 +40,11 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
 
 <body>
 
+    <?php include("inc/header.php"); ?>
+
     <div id="paginaPublicaciones">
         <!-- SIDEBAR -->
-        <?php
-        include "inc/header.php";
-        include("inc/navigatorColum.php");
-        ?>
+        <?php include("inc/navigatorColum.php"); ?>
         <!-- SE MUESTRAN LAS PUBLICACIONES DE LA BASE DE DATOS  -->
         <div id="contenedorPublicaciones">
             <div id="tituloRutinas"> <p>RUTINAS</p> </div>
