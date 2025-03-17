@@ -130,10 +130,13 @@ include_once __DIR__."/../config/config.php";
 
         <div class="form-floating">
             <!-- Punto de depuración: Campo de entrada para el nombre de usuario -->
-            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de usuario" required>
-            <label for="nombre">Nombre de usuario</label>
+            <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" placeholder="Nombre de usuario" required>
+            <label for="nombre_usuario">Nombre de usuario</label>
         </div>
-
+        <div class="form-floating">
+                <input type="text" class="form-control" name="nombre" id="floatingInput" placeholder="Nombre">
+                <label for="floatingInput">Nombre</label>
+            </div>
         <div class="form-floating">
             <!-- Punto de depuración: Campo de entrada para la contraseña -->
             <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" required>
