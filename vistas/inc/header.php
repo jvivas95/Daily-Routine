@@ -1,6 +1,12 @@
 <?php 
   include_once __DIR__."/../../lib/autenticacion.php";
   include_once __DIR__."/../../config/config.php";
+
+  if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.php') {
+    header("Location: ".BASE_URL."/vistas/login.php");
+    exit();
+}
+
 ?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">

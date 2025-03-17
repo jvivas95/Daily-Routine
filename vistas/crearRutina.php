@@ -1,3 +1,19 @@
+<?php
+  include_once __DIR__.("/../config/config.php");
+  include_once __DIR__.("/../lib/autenticacion.php");
+
+  //VERIFICAR SI EL USUARIO ESTA AUTENTICADO
+  if (!Autenticacion::estaAutenticado()){
+    header("Location: ".BASE_URL."/vistas/login.php");
+  }
+
+  include_once __DIR__.("/inc/header.php");
+  include_once __DIR__.("/inc/navigatorColum.php");
+  
+
+  
+
+  ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -19,49 +35,36 @@
     <link href="../assets/css/crearRutina.css" rel="stylesheet">
 
   </head>
-
-  <div>
-
-  <!-- SIDEBAR -->
-  <?php
-  include_once __DIR__.("/inc/header.php");
-  include_once __DIR__.("/inc/navigatorColum.php");
-  include_once __DIR__.("/../config/config.php");
-  ?>
-
-  <!-- CABECERA CREAR PUBLICACIONES -->
-  <div id="contenedorPublicaciones">
-  <div id="tituloCrearRutinas">NUEVA PUBLICACION</div>
-      <form method="POST" action="<?php echo BASE_URL?>/modelos/modeloCrearPubli.php">
-      <div id="container">
-          <div class="caja">
-              <div id="cabeceraPublicacion">
-                  <div id="infoCabecera">
-                  <div>
-                      <select id="tituloPublicacion" name="categoria">
-                          <option value="Bienestar">-Bienestar</option>
-                          <option value="Productividad">-Productividad</option>
-                          <option value="Crecimiento">-Crecimiento</option>
-                      </select>
-                  </div>
-    <div id="nUsuario" name="usuarioId"></div>
-  </div>
-                  <div id="separadorCabecera"></div>
-              </div>
-              <div id="publicacion">
-                
-                <textarea id="textoPublicacion" name="descripcion" placeholder="Introducir texto de la publicación"></textarea>
-              </div>
-              <div id="fechaPublicacion" name="fechaHora"></div>
-          </div>
-          <div id="contenedorBotones">
-              <button id="publicar" type="submit">¡PUBLICAR!</button>
-          </div>
-      </div>
-    </div>
-  </form>
-</div>
-
+  <body>        <!-- CABECERA CREAR PUBLICACIONES -->
+        <div id="contenedorPublicaciones">
+            <div id="tituloCrearRutinas">NUEVA PUBLICACION</div>
+            <form method="POST" action="<?php echo BASE_URL ?>/modelos/modeloCrearPubli.php">
+                <div id="container">
+                    <div class="caja">
+                        <div id="cabeceraPublicacion">
+                            <div id="infoCabecera">
+                                <div>
+                                    <select id="tituloPublicacion" name="categoria">
+                                        <option value="Bienestar">-Bienestar</option>
+                                        <option value="Productividad">-Productividad</option>
+                                        <option value="Crecimiento">-Crecimiento</option>
+                                    </select>
+                                </div>
+                                <div id="nUsuario" name="usuarioId"></div>
+                            </div>
+                            <div id="separadorCabecera"></div>
+                        </div>
+                        <div id="publicacion">
+                            <textarea id="textoPublicacion" name="descripcion" placeholder="Introducir texto de la publicación"></textarea>
+                        </div>
+                        <div id="fechaPublicacion" name="fechaHora"></div>
+                    </div>
+                    <div id="contenedorBotones">
+                        <button id="publicar" type="submit">¡PUBLICAR!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 <script>
   // Evento al hacer scroll en la página
 window.addEventListener("scroll", function() {
