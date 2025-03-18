@@ -47,6 +47,13 @@ if ($userName_existente['count'] > 0) {
     $errores[] = "Nombre de usuario ya está en uso";
 }
 
+// Validar que el nombre de usuario, el nombre y los apellidos contengan solo letras y espacios y no estén vacíos
+$nombreUsuario = trim($nombreUsuario);
+
+if (preg_match("/^[a-zA-Z ]+$/", $nombreUsuario)) {
+    $errores[] = "Error: El nombre de usuario solo puede contener letras y sin espacios en blanco";
+}
+
     // Consulta a la base de datos para verificar si el correo electrónico ya está registrado
 $sqlEmail = "SELECT COUNT(*) as count FROM usuario WHERE email = ?";
 $preparacion = $conexion->prepare($sqlEmail);
@@ -59,11 +66,6 @@ $usuario_existente = $result->fetch_assoc();
 if ($usuario_existente['count'] > 0) {
     // El correo electrónico ya está registrado, mostrar mensaje de error
     $errores[] = "El correo electrónico ya está registrado en nuestra base de datos.";
-} 
-
-    // Validar que el nombre de usuario, el nombre y los apellidos contengan solo letras y espacios y no estén vacíos
-if (!preg_match("/^[a-zA-Z ]+$/", $nombreUsuario)) {
-    $errores[] = "Error: El nombre de usuario solo puede contener letras.";
 }
 
     if (!preg_match("/^[a-zA-Z ]+$/", $nombre)) {

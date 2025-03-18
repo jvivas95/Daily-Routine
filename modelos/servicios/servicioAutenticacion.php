@@ -4,16 +4,16 @@ include "../lib/GestorBD.php";
 
 class ServicioAutenticacion{
 
-    public static function validarUsuarioContrasena($usuario, $contrasena){
+    public static function validarUsuarioContrasena($nombreUsuario, $contrasena){
         // Debugging: Mostrar el usuario y la contraseña recibidos
         //echo "Validando usuario: $usuario, contraseña: $contrasena<br>";
         
         // Debugging: Mostrar la consulta SQL
-        $consultaSQL = "SELECT contrasena FROM usuario WHERE nombre = ?";
+        $consultaSQL = "SELECT contrasena FROM usuario WHERE user_name = ?";
         //echo "Consulta SQL: $consultaSQL<br>";
 
         // Realizar la consulta a la base de datos
-        $resultado = GestorBD::consultaLectura($consultaSQL, $usuario);
+        $resultado = GestorBD::consultaLectura($consultaSQL, $nombreUsuario);
 
         // Debugging: Mostrar el resultado de la consulta
        // echo "Resultado de la consulta: ";
