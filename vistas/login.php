@@ -17,15 +17,23 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
   <?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+
   //INCLUDES
+  include_once __DIR__ . "/../config/cargarEnv.php"; // Cargar las variables de entorno
   include_once __DIR__ . "/../lib/autenticacion.php";
   include_once __DIR__ . "/../lib/GestorBD.php";
-  include_once __DIR__ . "/../config/config.php";
   //CONEXION A LA BBDD
 
-  $conexion = GestorBD::conectar();
-  if (!$conexion) {
-    die("Error al conectar con la base de datos");
+  try {
+    $conexion = GestorBD::conectar();
+    if (!$conexion) {
+      throw new Exception("Error al conectar con la base de datos");
+    }
+  } catch (Exception $e) {
+    die("Excepción capturada: " . $e->getMessage());
   }
 
   if (Autenticacion::estaAutenticado()) {

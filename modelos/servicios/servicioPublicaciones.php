@@ -30,7 +30,7 @@ class servicioPublicaciones
         // Consulta SQL para listar las publicaciones del usuario con el nombre especificado
         $sql = "SELECT rutina.* FROM rutina 
                     INNER JOIN usuario ON rutina.user_id = usuario.user_id 
-                    WHERE usuario.nombre = ?
+                    WHERE usuario.user_name = ?
                     ORDER BY rutina.fechaHora DESC";
 
         return GestorBD::consultaLectura($sql, $nombreUsuario);

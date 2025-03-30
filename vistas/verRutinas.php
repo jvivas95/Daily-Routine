@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 
 include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
 include_once __DIR__ . "/../lib/autenticacion.php";
+include_once __DIR__ . "/../config/cargarEnv.php";
+
 
 // Crear una instancia del servicio
 $servicioPublicaciones = new servicioPublicaciones();

@@ -1,37 +1,26 @@
 <?php
 
-include_once __DIR__ . "../lib/GestorBD.php";
+include_once __DIR__ . "/../../lib/GestorBD.php";
 
 class ServicioAutenticacion
 {
 
     public static function validarUsuarioContrasena($nombreUsuario, $contrasena)
     {
-        // Debugging: Mostrar el usuario y la contraseña recibidos
-        //echo "Validando usuario: $usuario, contraseña: $contrasena<br>";
+        // Consulta para obtener la contraseña encriptada del usuario
+        $consulta = "SELECT contrasena FROM usuario WHERE user_name = ?";
+        $resultado = GestorBD::consultaLectura($consulta, $nombreUsuario);
 
-        // Debugging: Mostrar la consulta SQL
-        $consultaSQL = "SELECT contrasena FROM usuario WHERE user_name = ?";
-        //echo "Consulta SQL: $consultaSQL<br>";
+        if (count($resultado) > 0) {
+            $hash_contrasena = $resultado[0]['contrasena'];
 
-        // Realizar la consulta a la base de datos
-        $resultado = GestorBD::consultaLectura($consultaSQL, $nombreUsuario);
+            // Verificar la contraseña ingresada con la almacenada
+            if (password_verify($contrasena, $hash_contrasena)) {
+                return true; // Contraseña correcta
+            }
+        }
 
-        // Debugging: Mostrar el resultado de la consulta
-        // echo "Resultado de la consulta: ";
-        // var_dump($resultado);
-
-        // Calcular el hash de la contraseña recibida
-        $hash = hash('sha256', $contrasena);
-        // echo "Hash de la contraseña: $hash<br>";
-
-        // Comparar el hash de la contraseña con el hash almacenado en la base de datos
-        $validacionExitosa = count($resultado) == 1 && $resultado[0]["contrasena"] == $hash;
-
-        // Debugging: Mostrar el resultado de la validación
-        // echo "Validación de usuario y contraseña: " . ($validacionExitosa ? "Éxito" : "Fracaso") . "<br>";
-
-        return $validacionExitosa;
+        return false; // Usuario no encontrado o contraseña incorrecta
     }
 
     public static function obtenerUsuario() {}

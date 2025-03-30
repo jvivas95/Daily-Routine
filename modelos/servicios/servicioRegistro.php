@@ -3,128 +3,85 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once __DIR__ . "/../../config/config.php";
+require_once __DIR__ . "/../../lib/GestorBD.php";
+require_once __DIR__ . "/../../config/cargarEnv.php";
+
 
 class ServicioRegistro
 {
-
-
     public function registroUsuario($nombreUsuario, $nombre, $contrasena, $apellidos, $edad, $email, $genero)
     {
-        $errores = array();
+        $errores = [];
 
-        // Realizar la conexión a la base de datos
-        $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-
-        // Verificar la conexión
-        if ($conexion->connect_error) {
-            die("Error de conexión: " . $conexion->connect_error);
+        // Validar que los datos no estén vacíos
+        if (empty($nombreUsuario) || empty($nombre) || empty($contrasena) || empty($apellidos) || empty($edad) || empty($email) || empty($genero)) {
+            $errores[] = "Error: Alguno de los campos está vacío.";
+            exit();
         }
 
-        // Verifica si se recibieron los datos del formulario
-        if (isset($_POST["nombre_usuario"]) && isset($_POST["nombre"]) && isset($_POST["contrasena"]) && isset($_POST["apellidos"]) && isset($_POST["edad"]) && isset($_POST["email"]) && isset($_POST["genero"])) {
+        // Validar longitud del nombre de usuario
+        if (strlen($nombreUsuario) > 10) {
+            $errores[] = "Error: El nombre de usuario no puede contener más de 10 caracteres.";
+        }
 
+        // Validar formato del nombre de usuario (solo letras y números, sin espacios)
+        if (!preg_match("/^[a-zA-Z0-9]+$/", $nombreUsuario)) {
+            $errores[] = "Error: El nombre de usuario solo puede contener letras y números, sin espacios.";
+        }
 
-            // Realiza cualquier validación adicional aquí
-            if (empty($nombreUsuario) || empty($nombre) || empty($contrasena) || empty($apellidos) || empty($edad) || empty($email) || empty($genero)) {
-                $errores[] = "Error: Alguno de los campos está vacío.";
-                exit();
-            }
+        // Validar que el nombre y los apellidos contengan solo letras y espacios
+        if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $nombre)) {
+            $errores[] = "Error: El nombre solo puede contener letras y espacios.";
+        }
 
-            if (strlen($nombreUsuario) > 10) {
-                $errores[] = "Error: El nombre de usuario no puede contener más de 10 carácteres";
-            }
+        if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/", $apellidos)) {
+            $errores[] = "Error: Los apellidos solo pueden contener letras y espacios.";
+        }
 
-            // Consulta a la base de datos para verificar si el usuario ya está registrado
-            $sqlUserName = "SELECT COUNT(*) as count FROM usuario WHERE user_name = ?";
-            $preparacion = $conexion->prepare($sqlUserName);
-            $preparacion->bind_param("s", $nombreUsuario);
-            $preparacion->execute();
-            $result = $preparacion->get_result();
-            $userName_existente = $result->fetch_assoc();
+        // Validar que la edad sea un número entero y mayor o igual a 18
+        if (!filter_var($edad, FILTER_VALIDATE_INT) || $edad < 18) {
+            $errores[] = "Error: La edad mínima es 18 años.";
+        }
 
-            // Verificar si ya existe un usuario con el mismo nombre de usuario
-            if ($userName_existente['count'] > 0) {
-                // El nombre de usuario ya está registrado, mostrar mensaje de error
-                $errores[] = "Nombre de usuario ya está en uso";
-            }
+        // Validar formato del correo electrónico
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errores[] = "Error: El formato del correo electrónico es inválido.";
+        }
 
-            // Validar que el nombre de usuario, el nombre y los apellidos contengan solo letras y espacios y no estén vacíos
-            $nombreUsuario = trim($nombreUsuario);
+        // Verificar si el nombre de usuario ya existe
+        $consultaUsuario = "SELECT COUNT(*) as count FROM usuario WHERE user_name = ?";
+        $resultadoUsuario = GestorBD::consultaLectura($consultaUsuario, $nombreUsuario);
 
-            if (preg_match("/^[a-zA-Z ]+$/", $nombreUsuario)) {
-                $errores[] = "Error: El nombre de usuario solo puede contener letras y sin espacios en blanco";
-            }
+        if ($resultadoUsuario[0]['count'] > 0) {
+            $errores[] = "Error: El nombre de usuario ya está en uso.";
+        }
 
-            // Consulta a la base de datos para verificar si el correo electrónico ya está registrado
-            $sqlEmail = "SELECT COUNT(*) as count FROM usuario WHERE email = ?";
-            $preparacion = $conexion->prepare($sqlEmail);
-            $preparacion->bind_param("s", $email);
-            $preparacion->execute();
-            $result = $preparacion->get_result();
-            $usuario_existente = $result->fetch_assoc();
+        // Verificar si el correo electrónico ya existe
+        $consultaEmail = "SELECT COUNT(*) as count FROM usuario WHERE email = ?";
+        $resultadoEmail = GestorBD::consultaLectura($consultaEmail, $email);
 
-            // Verificar si ya existe un usuario con el mismo correo electrónico
-            if ($usuario_existente['count'] > 0) {
-                // El correo electrónico ya está registrado, mostrar mensaje de error
-                $errores[] = "El correo electrónico ya está registrado en nuestra base de datos.";
-            }
+        if ($resultadoEmail[0]['count'] > 0) {
+            $errores[] = "Error: El correo electrónico ya está registrado.";
+        }
 
-            if (!preg_match("/^[a-zA-Z ]+$/", $nombre)) {
-                $errores[] = "Error: El nombre solo puede contener letras.";
-            }
+        // Si hay errores después de las verificaciones, redirigir con los errores
+        if (!empty($errores)) {
+            $errores_encoded = urlencode(json_encode($errores));
+            header("Location: ../vistas/registro.php?errores=$errores_encoded");
+            exit();
+        }
 
-            if (!preg_match("/^[a-zA-Z ]+$/", $apellidos)) {
-                $errores[] = "Error: Los apellidos solo pueden contener letras.";
-            }
+        // Hash de la contraseña
+        $hash_contrasena = password_hash($contrasena, PASSWORD_BCRYPT);
 
-            //Validar que el usuario sea mayor de edad
+        // Insertar el usuario en la base de datos
+        $consultaInsertar = "INSERT INTO usuario (user_name, nombre, apellidos, edad, email, genero, contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $resultadoInsertar = GestorBD::consultaEscritura($consultaInsertar, $nombreUsuario, $nombre, $apellidos, $edad, $email, $genero, $hash_contrasena);
 
-            if ($edad < 18) {
-                $errores[] = "La edad mínima es 18 años";
-            }
-
-            // Validar que el email contenga al menos una arroba
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errores[] = "Error: El formato del correo electrónico es inválido.";
-            }
-
-            if (!empty($errores)) {
-                // Redirigir a registro.php con los errores como parámetro GET
-                $errores_encoded = urlencode(json_encode($errores)); // Codificar los errores como URL
-                header("Location: ../vistas/registro.php?errores=$errores_encoded");
-                exit();
-            }
-
-
-            // Hash de la contraseña
-            $hash_contrasena = hash('sha256', $contrasena);
-
-
-
-            // Consulta SQL para insertar el usuario y la contraseña en la base de datos
-            $sql = "INSERT INTO usuario (user_name, nombre, apellidos, edad, email, genero, contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-            // Preparar la consulta
-            $statement = $conexion->prepare($sql);
-            if (!$statement) {
-                die("Error al preparar la consulta: " . $conexion->error);
-            }
-
-            // Vincular los parámetros y ejecutar la consulta
-            $statement->bind_param("ssissss", $nombreUsuario, $nombre, $apellidos, $edad, $email, $genero, $hash_contrasena);
-            if ($statement->execute()) {
-
-                header("location: /vistas/login.php");
-            } else {
-                echo "Error al registrar el usuario: " . $statement->error . "<br>";
-            }
-
-            // Cerrar la conexión a la base de datos
-            $statement->close();
-            $conexion->close();
+        if ($resultadoInsertar) {
+            header("Location: /vistas/login.php");
         } else {
-            echo "Error: No se recibieron los datos del formulario.";
+            echo "Error al registrar el usuario.";
         }
     }
 }

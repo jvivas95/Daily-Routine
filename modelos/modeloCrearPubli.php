@@ -1,8 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-include_once __DIR__ . ("/../lib/GestorBD.php");
-include_once __DIR__ . ("/servicios/servicioPublicaciones.php");
-include_once __DIR__ . ("/../config/config.php");
+include_once __DIR__ . "/../lib/GestorBD.php";
+include_once __DIR__ . "/servicios/servicioPublicaciones.php";
+include_once __DIR__ . "/../config/cargarEnv.php";
+
 
 session_start();
 
@@ -33,7 +37,7 @@ if (!$conexion) {
 }
 
 // Obtener el ID del usuario autenticado
-$query = "SELECT user_id FROM usuario WHERE nombre = ?";
+$query = "SELECT user_id FROM usuario WHERE user_name = ?";
 $stmt = $conexion->prepare($query);
 $stmt->bind_param("s", $usuario);
 $stmt->execute();

@@ -1,7 +1,5 @@
 <?php 
 include_once __DIR__."/../modelos/servicios/servicioAutenticacion.php";
-include_once __DIR__."/../config/config.php";
-
 
 class Autenticacion{
 

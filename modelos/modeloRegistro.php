@@ -1,6 +1,6 @@
 <?php
 
-include "./servicios/servicioRegistro.php";
+include_once __DIR__ . "/servicios/servicioRegistro.php";
 
     $nombreUsuario = $_POST["nombre_usuario"];
     $nombre = $_POST["nombre"];
