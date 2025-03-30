@@ -1,16 +1,30 @@
 <?php
 
+require_once __DIR__ . "/../../config/cargarEnv.php";
+
     class servicioPublicaciones{
+
+        private function obtenerConexion(){
+            $host=$_ENV['DB_HOST'];
+            $usuario=$_ENV['DB_USER'];
+            $password=$_ENV['DB_PASSWORD'];
+            $nombreDB=$_ENV['DB_NAME'];
+
+            $conexion = new mysqli($host,$usuario,$password,$nombreDB);
+
+            //Verificación de la conexión
+            if ($conexion->connect_error){
+                die("Error de conexión: " . $conexion->connect_error);
+            }
+
+            return $conexion;
+
+        }
 
         public function crearPublicacion($id_usuario, $titulo, $descripcion, $fecha){
 
-                // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            // Realizar la conexión a la base de datos
+            $conexion = $this->obtenerConexion();
 
             // Consulta SQL para insertar la rutina en la base de datos
             $sql = "INSERT INTO rutina (user_id, titulo, descripcion, fechaHora) VALUES (?, ?, ?, ?)";
@@ -38,12 +52,7 @@
 
         public function listarPublicaciones() {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-        
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            $conexion = $this->obtenerConexion();
         
             // Consulta SQL para listar las rutinas junto con el nombre del usuario
          // Consulta SQL para listar las rutinas junto con el nombre del usuario y ordenar por fecha descendente
@@ -72,12 +81,7 @@
 
         public function listarPublicacionesUsuario($nombreUsuario) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-        
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            $conexion = $this->obtenerConexion();
         
             // Consulta SQL para listar las publicaciones del usuario con el nombre especificado
             $sql = "SELECT rutina.* FROM rutina 
@@ -118,13 +122,8 @@
 
         public function borrarPublicacion($id_publicacion) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-        
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
-        
+            $conexion = $this->obtenerConexion();
+
             // Consulta SQL para borrar la publicación en la base de datos
             $sql = "DELETE FROM rutina WHERE rutina_id = ?";
         
@@ -156,12 +155,7 @@
         
         public function modificarPublicacion($publicacion) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-        
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            $conexion = $this->obtenerConexion();
         
             // Consulta SQL para actualizar la publicación en la base de datos
             $sql = "UPDATE rutina SET titulo = ?, descripcion = ?, fechaHora = ? WHERE rutina_id = ?";
@@ -192,12 +186,7 @@
 
         public function obtenerPublicacionPorId($id) {
             // Realizar la conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "dailyroutine");
-        
-            // Verificar la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            $conexion = $this->obtenerConexion();
         
             // Consulta SQL para obtener la publicación por ID y usuario
             $sql = "SELECT * FROM rutina WHERE rutina_id = ?";
@@ -235,13 +224,6 @@
                 return null;
             }
         }
-        
-        
-        
-        
-        
-
-       
     }
     
 ?>

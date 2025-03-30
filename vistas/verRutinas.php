@@ -1,11 +1,10 @@
 <?php
-include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
-include "./../lib/autenticacion.php"; 
 
-//VERIFICAR SI EL USUARIO ESTA AUTENTICADO
-if (!Autenticacion::estaAutenticado()){
-    header("Location: ".BASE_URL."/vistas/login.php");
-}
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
+include_once __DIR__ . "/../lib/autenticacion.php";
 
 // Crear una instancia del servicio
 $servicioPublicaciones = new servicioPublicaciones();
@@ -39,12 +38,12 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
 </head>
 
 <body>
-
-    <?php include("inc/header.php"); ?>
-
     <div id="paginaPublicaciones">
         <!-- SIDEBAR -->
-        <?php include("inc/navigatorColum.php"); ?>
+        <?php
+        include "inc/header.php";
+        include("inc/navigatorColum.php");
+        ?>
         <!-- SE MUESTRAN LAS PUBLICACIONES DE LA BASE DE DATOS  -->
         <div id="contenedorPublicaciones">
             <div id="tituloRutinas"> <p>RUTINAS</p> </div>
