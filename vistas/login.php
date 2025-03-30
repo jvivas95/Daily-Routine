@@ -24,12 +24,12 @@
     $conex->conectar();
 
     if (Autenticacion::estaAutenticado()){
-        header ("location: ".BASE_URL."/vistas/verRutinas.php");
+        header ("location: /vistas/verRutinas.php");
         exit();
     }
     if (isset($_POST["nombre_usuario"]) && isset($_POST["contrasena"])){
         if (Autenticacion::autenticar($_POST["nombre_usuario"], $_POST["contrasena"])){
-          header("location: ".BASE_URL."/vistas/verRutinas.php");
+          header("location: /vistas/verRutinas.php");
           //exit();
         } else {
           $error_message = "Usuario y/o contraseña incorrectos";
@@ -40,8 +40,8 @@
     <main class="form-signin w-100 m-auto">
         <!-- Formulario de inicio de sesión -->
         <form method="POST" action="">
-        <a href="<?php echo BASE_URL;?>/index.php">
-    <img class="mb-4" src="<?php echo(BASE_URL)?>/assets/img/logo.png" alt="" width="300px" style="margin-top: 150px;">
+        <a href="/index.php">
+    <img class="mb-4" src="/assets/img/logo.png" alt="" width="300px" style="margin-top: 150px;">
 </a>
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -63,7 +63,7 @@
                 <label class="form-check-label" for="flexCheckDefault">Remember me</label>
             </div>
             <button class="btn btn-primary w-100 py-2, margen-inferior" type="submit" style="margin-bottom: 10px;">Sign in</button>
-            <a href="<?php echo BASE_URL ?>/vistas/registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
+            <a href="/vistas/registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
         </form>
     </main>

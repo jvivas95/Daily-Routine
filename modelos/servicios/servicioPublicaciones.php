@@ -1,229 +1,81 @@
 <?php
 
-require_once __DIR__ . "/../../config/cargarEnv.php";
+require_once __DIR__ . "/../../lib/GestorBD.php";
 
-    class servicioPublicaciones{
+class servicioPublicaciones
+{
 
-        private function obtenerConexion(){
-            $host=$_ENV['DB_HOST'];
-            $usuario=$_ENV['DB_USER'];
-            $password=$_ENV['DB_PASSWORD'];
-            $nombreDB=$_ENV['DB_NAME'];
+    public function crearPublicacion($id_usuario, $titulo, $descripcion, $fecha)
+    {
 
-            $conexion = new mysqli($host,$usuario,$password,$nombreDB);
+        // Consulta SQL para insertar la rutina en la base de datos
+        $sql = "INSERT INTO rutina (user_id, titulo, descripcion, fechaHora) VALUES (?, ?, ?, ?)";
+        return GestorBD::consultaEscritura($sql, $id_usuario, $titulo, $descripcion, $fecha);
+    }
 
-            //Verificación de la conexión
-            if ($conexion->connect_error){
-                die("Error de conexión: " . $conexion->connect_error);
-            }
-
-            return $conexion;
-
-        }
-
-        public function crearPublicacion($id_usuario, $titulo, $descripcion, $fecha){
-
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-
-            // Consulta SQL para insertar la rutina en la base de datos
-            $sql = "INSERT INTO rutina (user_id, titulo, descripcion, fechaHora) VALUES (?, ?, ?, ?)";
-
-
-            // Preparar la consulta
-        $statement = $conexion->prepare($sql);
-        if (!$statement) {
-            die("Error al preparar la consulta: " . $conexion->error);
-        }
-
-        $statement->bind_param("isss",$id_usuario, $titulo, $descripcion,$fecha);
-
-        $resultado = $statement->execute();
-
-        //Cierra la consulta y la sesion
-        $statement->close();
-
-        $conexion->close();
-
-        //Devuelve el resultado de la ejecución
-        return $resultado;
-
-        }
-
-        public function listarPublicaciones() {
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-        
-            // Consulta SQL para listar las rutinas junto con el nombre del usuario
-         // Consulta SQL para listar las rutinas junto con el nombre del usuario y ordenar por fecha descendente
-            $sql = "SELECT rutina.*, usuario.nombre AS usuario 
+    public function listarPublicaciones()
+    {
+        // Consulta SQL para listar las rutinas junto con el nombre del usuario y ordenar por fecha descendente
+        $sql = "SELECT rutina.*, usuario.nombre AS usuario 
             FROM rutina 
             JOIN usuario ON rutina.user_id = usuario.user_id
             ORDER BY rutina.fechaHora DESC";
 
-        
-            $result = $conexion->query($sql);
-        
-            // Verificar si hay resultados
-            if ($result->num_rows > 0) {
-                $publicaciones = array();
-                while ($row = $result->fetch_assoc()) {
-                    $publicaciones[] = $row;
-                }
-                $conexion->close();
-                return $publicaciones;
-            } else {
-                $conexion->close();
-                return array();
-            }
-        }
-        
+        return GestorBD::consultaLectura($sql);
+    }
 
-        public function listarPublicacionesUsuario($nombreUsuario) {
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-        
-            // Consulta SQL para listar las publicaciones del usuario con el nombre especificado
-            $sql = "SELECT rutina.* FROM rutina 
+
+    public function listarPublicacionesUsuario($nombreUsuario)
+    {
+        // Consulta SQL para listar las publicaciones del usuario con el nombre especificado
+        $sql = "SELECT rutina.* FROM rutina 
                     INNER JOIN usuario ON rutina.user_id = usuario.user_id 
                     WHERE usuario.nombre = ?
                     ORDER BY rutina.fechaHora DESC";
-        
-            // Preparar la declaración SQL
-            $stmt = $conexion->prepare($sql);
-            if ($stmt === false) {
-                die("Error al preparar la consulta: " . $conexion->error);
-            }
-        
-            // Vincular el parámetro del nombre del usuario
-            $stmt->bind_param("s", $nombreUsuario);
-        
-            // Ejecutar la consulta
-            $stmt->execute();
-        
-            // Obtener el resultado
-            $result = $stmt->get_result();
-        
-            // Verificar si hay resultados
-            if ($result->num_rows > 0) {
-                $publicaciones = array();
-                while ($row = $result->fetch_assoc()) {
-                    $publicaciones[] = $row;
-                }
-                $stmt->close();
-                $conexion->close();
-                return $publicaciones;
-            } else {
-                $stmt->close();
-                $conexion->close();
-                return array();
-            }
-        }
 
-        public function borrarPublicacion($id_publicacion) {
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-
-            // Consulta SQL para borrar la publicación en la base de datos
-            $sql = "DELETE FROM rutina WHERE rutina_id = ?";
-        
-            // Preparar la consulta
-            $statement = $conexion->prepare($sql);
-            if (!$statement) {
-                die("Error al preparar la consulta: " . $conexion->error);
-            }
-        
-            // Vincular el parámetro de ID de publicación
-            $statement->bind_param("i", $id_publicacion);
-        
-            // Ejecutar la consulta
-            $resultado = $statement->execute();
-        
-            // Verificar si la consulta se ejecutó correctamente
-            if ($resultado) {
-                // La publicación se eliminó correctamente
-                return true;
-            } else {
-                // Ocurrió un error al eliminar la publicación
-                die("Error al eliminar la publicación: " . $statement->error);
-            }
-        
-            // Cerrar la consulta y la conexión
-            $statement->close();
-            $conexion->close();
-        }
-        
-        public function modificarPublicacion($publicacion) {
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-        
-            // Consulta SQL para actualizar la publicación en la base de datos
-            $sql = "UPDATE rutina SET titulo = ?, descripcion = ?, fechaHora = ? WHERE rutina_id = ?";
-        
-            // Preparar la consulta
-            $statement = $conexion->prepare($sql);
-            if (!$statement) {
-                die("Error al preparar la consulta: " . $conexion->error);
-            }
-        
-            // Vincular los parámetros
-            $statement->bind_param("sssi", $publicacion->getTitulo(), $publicacion->getDescripcion(), $publicacion->getFechaHora(), $publicacion->getId());
-        
-            // Ejecutar la consulta
-            $resultado = $statement->execute();
-        
-            // Verificar si la consulta se ejecutó correctamente
-            if ($resultado) {
-                $statement->close();
-                $conexion->close();
-                return true;
-            } else {
-                $statement->close();
-                $conexion->close();
-                return false;
-            }
-        }
-
-        public function obtenerPublicacionPorId($id) {
-            // Realizar la conexión a la base de datos
-            $conexion = $this->obtenerConexion();
-        
-            // Consulta SQL para obtener la publicación por ID y usuario
-            $sql = "SELECT * FROM rutina WHERE rutina_id = ?";
-        
-            // Preparar la consulta
-            $statement = $conexion->prepare($sql);
-            if (!$statement) {
-                die("Error al preparar la consulta: " . $conexion->error);
-            }
-        
-            // Vincular los parámetros
-            $statement->bind_param("i", $id);
-        
-            // Ejecutar la consulta
-            $statement->execute();
-        
-            // Obtener el resultado
-            $resultado = $statement->get_result();
-            $publicacion = $resultado->fetch_assoc();
-        
-            // Cerrar la consulta y la conexión
-            $statement->close();
-            $conexion->close();
-        
-            // Devolver el resultado como un objeto de la clase Publicacion
-            if ($publicacion) {
-                return new Publicacion(
-                    $publicacion['rutina_id'],
-                    $publicacion['titulo'],
-                    $publicacion['descripcion'],
-                    $publicacion['fechaHora'],
-                    $publicacion['user_id']
-                );
-            } else {
-                return null;
-            }
-        }
+        return GestorBD::consultaLectura($sql, $nombreUsuario);
     }
-    
-?>
+
+    public function borrarPublicacion($id_publicacion)
+    {
+        // Consulta SQL para borrar la publicación en la base de datos
+        $sql = "DELETE FROM rutina WHERE rutina_id = ?";
+
+        return GestorBD::consultaEscritura($sql, $id_publicacion);
+    }
+
+    public function modificarPublicacion($publicacion)
+    {
+        // Consulta SQL para actualizar la publicación en la base de datos
+        $sql = "UPDATE rutina SET titulo = ?, descripcion = ?, fechaHora = ? WHERE rutina_id = ?";
+
+        return GestorBD::consultaEscritura(
+            $sql,
+            $publicacion->getTitulo(),
+            $publicacion->getDescripcion(),
+            $publicacion->getFechaHora(),
+            $publicacion->getId()
+        );
+    }
+
+    public function obtenerPublicacionPorId($id)
+    {
+        // Consulta SQL para obtener la publicación por ID y usuario
+        $sql = "SELECT * FROM rutina WHERE rutina_id = ?";
+
+        $resultado = GestorBD::consultaLectura($sql, $id);
+
+        if (count($resultado) > 0) {
+            $publicacion = $resultado[0];
+            return new Publicacion(
+                $publicacion['rutina_id'],
+                $publicacion['titulo'],
+                $publicacion['descripcion'],
+                $publicacion['fechaHora'],
+                $publicacion['user_id'],
+            );
+        }
+
+        return null;
+    }
+}

@@ -40,7 +40,7 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <!-- HOME -->
       <li class="nav-item">
-        <a href="<?php echo BASE_URL ?>/vistas/verRutinas.php" class="nav-link text-white text-size" aria-current="page">
+        <a href="/vistas/verRutinas.php" class="nav-link text-white text-size" aria-current="page">
           <svg class="bi pe-none me-2" width="26" height="26"><use xlink:href="#home"/></svg>
           Inicio
         </a>

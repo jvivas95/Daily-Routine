@@ -5,14 +5,14 @@
         <div class="caja">
             <div id="cabeceraPublicacion">
                 <div id="infoCabecera">
-                    <div id="nUsuario"><?php echo $publicacion->userId; ?></div>
-                    <div id="fechaPublicacion"><?php echo $publicacion->fecha->format('d-m-Y - H:i'); ?></div>
+                    <div id="nUsuario"><?php echo $publicacion['user_id'] ?></div>
+                    <div id="fechaPublicacion"><?php echo date('d-m-Y - H:i', strtotime($publicacion['fecha'])); ?></div>
                 </div>
                 <div id="separadorCabecera"></div>
             </div>
             <div id="publicacion">
-                <div id="tituloPublicacion"><?php echo $publicacion->titulo; ?></div>
-                <div id="textoPublicacion"><?php echo $publicacion->descripcion; ?></div>
+                <div id="tituloPublicacion"><?php echo $publicacion['titulo']; ?></div>
+                <div id="textoPublicacion"><?php echo $publicacion['descripcion']; ?></div>
             </div>
         </div>
         <div id="contenedorBotones">
