@@ -32,17 +32,17 @@ class Autenticacion{
         }
     }
 
-    public static function autenticar($nombre, $contrasena){
+    public static function autenticar($nombreUsuario, $contrasena){
         // Debugging: Mostrar los datos de inicio de sesión
         //echo "Intentando autenticar con nombre de usuario: $nombre, contraseña: $contrasena<br>";
 
-        if (ServicioAutenticacion::validarUsuarioContrasena($nombre, $contrasena)){
+        if (ServicioAutenticacion::validarUsuarioContrasena($nombreUsuario, $contrasena)){
             // Debugging: Indicar que la autenticación fue exitosa
             //echo "Autenticación exitosa<br>";
 
             // Establecer la sesión y la cookie del usuario autenticado
-            $_SESSION[self::claveUsuario] = $nombre;
-            setcookie(self::cookieUsuario, $nombre);
+            $_SESSION[self::claveUsuario] = $nombreUsuario;
+            setcookie(self::cookieUsuario, $nombreUsuario);
 
             return true;
         }

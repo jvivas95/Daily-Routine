@@ -27,8 +27,8 @@
         header ("location: ".BASE_URL."/vistas/verRutinas.php");
         exit();
     }
-    if (isset($_POST["nombre"]) && isset($_POST["contrasena"])){
-        if (Autenticacion::autenticar($_POST["nombre"], $_POST["contrasena"])){
+    if (isset($_POST["nombre_usuario"]) && isset($_POST["contrasena"])){
+        if (Autenticacion::autenticar($_POST["nombre_usuario"], $_POST["contrasena"])){
           header("location: ".BASE_URL."/vistas/verRutinas.php");
           //exit();
         } else {
@@ -47,12 +47,12 @@
 
 
             <div class="form-floating">
-                <input type="text" class="form-control" name="nombre" id="floatingInput" placeholder="nombre">
-                <label for="floatingInput">Nombre</label>
+                <input type="text" class="form-control" name="nombre_usuario" id="floatingInput" placeholder="Nombre de usuario">
+                <label for="floatingInput">Nombre de usuario</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" name="contrasena" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">Contraseña</label>
             </div>
                 <?php if (!empty($error_message)): ?>
                 <div class="error-message"><?php echo $error_message; ?></div>

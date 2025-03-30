@@ -2,6 +2,7 @@
 
 include "./servicios/servicioRegistro.php";
 
+    $nombreUsuario = $_POST["nombre_usuario"];
     $nombre = $_POST["nombre"];
     $contrasena = $_POST["contrasena"];
     $apellidos = $_POST["apellidos"];
@@ -11,7 +12,7 @@ include "./servicios/servicioRegistro.php";
 
     $registro = new ServicioRegistro();
 
-    $registro->registroUsuario($nombre, $contrasena, $apellidos, $edad, $email, $genero);
+    $registro->registroUsuario($nombreUsuario, $nombre, $contrasena, $apellidos, $edad, $email, $genero);
 
 
 
