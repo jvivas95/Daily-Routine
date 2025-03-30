@@ -1,8 +1,10 @@
 <?php
 
-class servicioContacto {
+class servicioContacto
+{
 
-    public function registroContacto($nombre, $email, $mensaje, $fecha, $id_usuario){
+    public function registroContacto($nombre, $email, $mensaje, $fecha, $id_usuario)
+    {
 
 
 
@@ -43,29 +45,17 @@ class servicioContacto {
 
 
         // Preparar la consulta
-       $statement = $conexion->prepare($sql);
-       if (!$statement) {
-           die("Error al preparar la consulta: " . $conexion->error);
-       }
+        $statement = $conexion->prepare($sql);
+        if (!$statement) {
+            die("Error al preparar la consulta: " . $conexion->error);
+        }
 
-       $statement->bind_param("ssssi", $nombre, $email, $mensaje, $fecha, $id_usuario);
+        $statement->bind_param("ssssi", $nombre, $email, $mensaje, $fecha, $id_usuario);
 
-       $statement->execute();
+        $statement->execute();
 
-       $statement->close();
+        $statement->close();
 
-       $conexion->close();
-
-
-
-
-
-
-
-
-
+        $conexion->close();
     }
 }
-
-
-?>

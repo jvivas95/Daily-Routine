@@ -1,24 +1,24 @@
 <?php
-include "../lib/GestorBD.php";
-include "./servicios/servicioPublicaciones.php";
-include "./modeloPublicacion.php";
+include_once __DIR__ . "../lib/GestorBD.php";
+include_once __DIR__ . "./servicios/servicioPublicaciones.php";
+include_once __DIR__ . "./modeloPublicacion.php";
 
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    echo "<script>
+  echo "<script>
         alert('Debes autenticarte para realizar esta acción');
         window.location.href = '../vistas/login.php';
       </script>";
-    exit;
+  exit;
 }
 
 if (!isset($_POST["rutina_id"])) {
-    echo "<script>
+  echo "<script>
         alert('No se proporcionó el ID de la publicación');
         window.location.href = '../vistas/perfilUser.php';
       </script>";
-    exit;
+  exit;
 }
 
 $rutina_id = $_POST["rutina_id"];
@@ -32,15 +32,13 @@ $servicioPublicaciones = new servicioPublicaciones();
 $resultado = $servicioPublicaciones->modificarPublicacion($publicacion);
 
 if ($resultado) {
-    echo "<script>
+  echo "<script>
         alert('Publicación modificada correctamente');
         window.location.href = '../vistas/perfilUser.php';
       </script>";
 } else {
-    echo "<script>
+  echo "<script>
         alert('Error al modificar la publicación');
         window.location.href = '../vistas/perfilUser.php';
       </script>";
 }
-?>
-

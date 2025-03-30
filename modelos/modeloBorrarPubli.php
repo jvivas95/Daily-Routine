@@ -1,6 +1,6 @@
 <?php 
-include "../lib/GestorBD.php";
-include "./servicios/servicioPublicaciones.php";
+include_once __DIR__ . "../lib/GestorBD.php";
+include_once __DIR__ . "./servicios/servicioPublicaciones.php";
 
 session_start();
 

@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once "../lib/GestorBD.php"; // Asegúrate de incluir la ruta correcta
+require_once __DIR__ . "../lib/GestorBD.php"; // Asegúrate de incluir la ruta correcta
 
 class GestorBDTest extends TestCase 
 {
