@@ -27,8 +27,8 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href="<?php echo(BASE_URL) ?>/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo(BASE_URL) ?>/assets/css/carousel.css" rel="stylesheet">
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/carousel.css" rel="stylesheet">
 </head>
 <body>
   <!-- SVG Symbols -->
