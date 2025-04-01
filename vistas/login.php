@@ -15,7 +15,7 @@
   <link href="../assets/css/sign-in.css" rel="stylesheet">
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<body class="d-flex align-items-center bg-body-tertiary">
   <?php
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
@@ -56,14 +56,14 @@
       <a href="/index.php" class="mt-15">
         <img class="mb-4" src="/assets/img/logo.png" alt="logo" width="300px">
       </a>
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 fw-normal text-center" id="sign-in">Please sign in</h1>
 
 
       <div class="form-floating">
         <input type="text" class="form-control" name="nombre_usuario" id="floatingInput" placeholder="Nombre de usuario">
         <label for="floatingInput">Nombre de usuario</label>
       </div>
-      <div class="form-floating">
+      <div class="form-floating mt-2">
         <input type="password" class="form-control" name="contrasena" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Contraseña</label>
       </div>
@@ -73,7 +73,7 @@
 
       <div class="form-check text-start my-3">
         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+        <label class="form-check-label" for="flexCheckDefault" id="remember">Remember me</label>
       </div>
       <button class="btn btn-primary w-100 py-2, margen-inferior" type="submit" style="margin-bottom: 10px;">Sign in</button>
       <a href="/vistas/registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
