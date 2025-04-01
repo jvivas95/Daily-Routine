@@ -28,7 +28,7 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/css/carousel.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,22 +51,22 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
             <?php if (Autenticacion::estaAutenticado()) { ?>
               <!-- NOMBRE USUARIO -->
               <li class="nav-item">
-                <a class="btn btn-primary btn-sm btn-md-lg me-2" aria-current="page" href="/vistas/verRutinas.php">
+                <a class="btn btn-primary btn-sm btn-md-lg me-4 mt-2 mb-2" aria-current="page" href="/vistas/verRutinas.php">
                   <?php echo Autenticacion::obtenerUsuario(); ?>
                 </a>
               </li>
               <!-- CERRAR SESION -->
               <li class="nav-item">
-                <a class="btn btn-primary btn-sm btn-md-lg ms-2" aria-current="page" href="/vistas/logout.php"> Cerrar sesión</a>
+                <a class="btn btn-primary btn-sm btn-md-lg mt-2" aria-current="page" href="/vistas/logout.php"> Cerrar sesión</a>
               </li>
             <?php } else { ?>
               <!-- INICIAR SESION -->
               <li class="nav-item">
-                <a class="btn btn-primary btn-sm btn-md-lg me-2" aria-current="page" href="/vistas/login.php">Iniciar Sesión</a>
+                <a class="btn btn-primary btn-sm btn-md-lg me-4 mt-2 mb-2" aria-current="page" href="/vistas/login.php">Iniciar Sesión</a>
               </li>
               <!-- REGISTRARSE -->
               <li class="nav-item">
-                <a class="btn btn-primary btn-sm btn-md-lg ms-2" aria-current="page" href="/vistas/registro.php">Registrarse</a>
+                <a class="btn btn-primary btn-sm btn-md-lg mt-2" aria-current="page" href="/vistas/registro.php">Registrarse</a>
               </li>
             <?php } ?>
             <!-- AÑADIR MAS ITEMS
