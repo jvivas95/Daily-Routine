@@ -53,8 +53,8 @@
   <main class="form-signin w-100 m-auto">
     <!-- Formulario de inicio de sesión -->
     <form method="POST" action="">
-      <a href="/index.php">
-        <img class="mb-4" src="/assets/img/logo.png" alt="" width="300px" style="margin-top: 150px;">
+      <a href="/index.php" class="mt-15">
+        <img class="mb-4" src="/assets/img/logo.png" alt="logo" width="300px">
       </a>
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
