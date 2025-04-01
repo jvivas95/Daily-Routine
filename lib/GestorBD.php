@@ -6,10 +6,10 @@ class GestorBD
     {
         $host = $_ENV['DB_HOST'] ?? null;
         $usuario = $_ENV['DB_USER'] ?? null;
-        $password = $_ENV['DB_PASS'] ?? null;
+        $password = $_ENV['DB_PASS'];
         $nombreDB = $_ENV['DB_NAME'] ?? null;
 
-        if (!$host || !$usuario || !$password || !$nombreDB) {
+        if (!$host || !$usuario || !$nombreDB) {
             throw new Exception("Error: Las variables de entorno de la base de datos no están configuradas.");
         }
 

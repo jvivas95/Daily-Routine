@@ -40,31 +40,33 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
         <a href="/index.php">
-          <img src="/assets/img/logo.png" style="width: 25%; padding: 5px;" alt="Logo" />
+          <img src="/assets/img/logo_nav_bar.png" style="padding: 5px;" alt="Logo" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- BOTONES -->
           <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             <?php if (Autenticacion::estaAutenticado()) { ?>
+              <!-- NOMBRE USUARIO -->
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/vistas/verRutinas.php">
+                <a class="btn btn-primary btn-sm btn-md-lg me-2" aria-current="page" href="/vistas/verRutinas.php">
                   <?php echo Autenticacion::obtenerUsuario(); ?>
                 </a>
               </li>
+              <!-- CERRAR SESION -->
               <li class="nav-item">
-                <div style="border-top: 1px solid white; width: 100%;"></div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/vistas/logout.php"> Cerrar sesión</a>
+                <a class="btn btn-primary btn-sm btn-md-lg ms-2" aria-current="page" href="/vistas/logout.php"> Cerrar sesión</a>
               </li>
             <?php } else { ?>
+              <!-- INICIAR SESION -->
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/vistas/login.php">Iniciar Sesión / </a>
+                <a class="btn btn-primary btn-sm btn-md-lg me-2" aria-current="page" href="/vistas/login.php">Iniciar Sesión</a>
               </li>
+              <!-- REGISTRARSE -->
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/vistas/registro.php">Registrarse</a>
+                <a class="btn btn-primary btn-sm btn-md-lg ms-2" aria-current="page" href="/vistas/registro.php">Registrarse</a>
               </li>
             <?php } ?>
             <!-- AÑADIR MAS ITEMS

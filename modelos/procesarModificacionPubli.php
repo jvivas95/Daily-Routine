@@ -1,7 +1,9 @@
 <?php
-include_once __DIR__ . "../lib/GestorBD.php";
-include_once __DIR__ . "./servicios/servicioPublicaciones.php";
-include_once __DIR__ . "./modeloPublicacion.php";
+include_once __DIR__ . "/../lib/GestorBD.php";
+include_once __DIR__ . "/servicios/servicioPublicaciones.php";
+include_once __DIR__ . "/modeloPublicacion.php";
+include_once __DIR__ . "/../config/cargarEnv.php";
+
 
 session_start();
 
@@ -33,9 +35,8 @@ $resultado = $servicioPublicaciones->modificarPublicacion($publicacion);
 
 if ($resultado) {
   echo "<script>
-        alert('Publicación modificada correctamente');
-        window.location.href = '../vistas/perfilUser.php';
-      </script>";
+  window.location.href = '/vistas/perfilUser.php';
+  </script>";
 } else {
   echo "<script>
         alert('Error al modificar la publicación');

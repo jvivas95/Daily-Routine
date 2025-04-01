@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
-include_once __DIR__ . "./../lib/autenticacion.php";
+include_once __DIR__ . "/../lib/autenticacion.php";
 include_once __DIR__ . "/../config/cargarEnv.php";
 
 //VERIFICAR SI EL USUARIO ESTA AUTENTICADO
@@ -89,8 +89,8 @@ $eventsJson = json_encode($events);
                 <small><?php echo htmlspecialchars($publicacion['fechaHora']); ?></small>
               </div>
               <div id="botonesModificacion">
-                <form method="POST" action="../modelos/modeloBorrarPubli.php" style="display:inline;">
-                  <input type="hidden" name="rutina_id" value="<?php echo htmlspecialchars($publicacion['rutina_id']); ?>">
+                <form method="POST" action="/../modelos/modeloBorrarPubli.php" style="display:inline;" onsubmit="return confirmarBorrado();">
+                  <input type="hidden" name="rutina_id" value="<?php echo ($publicacion['rutina_id']); ?>">
                   <button id="botonBorrar" class="boton" type="submit">Borrar rutina</button>
                 </form>
                 <form method="GET" action="../modelos/modeloModificarPubli.php" style="display:inline;">
@@ -163,6 +163,12 @@ $eventsJson = json_encode($events);
 
       calendar.render();
     });
+
+    //CONFIRMACIÓN BORRAR PUBLICACION
+    function confirmarBorrado(){
+      return confirm("¿Seguro que quieres borrar tu publicación?");
+    }
+
   </script>
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebars.js"></script>
