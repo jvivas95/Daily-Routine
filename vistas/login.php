@@ -56,7 +56,7 @@
       <a href="/index.php" class="mt-15">
         <img class="mb-4" src="/assets/img/logo.png" alt="logo" width="300px">
       </a>
-      <h1 class="h3 mb-3 fw-normal text-center" id="sign-in">Please sign in</h1>
+      <h1 class="h3 mb-3 fw-normal text-center" id="sign-in">Iniciar sesión</h1>
 
 
       <div class="form-floating">
@@ -73,9 +73,9 @@
 
       <div class="form-check text-start my-3">
         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault" id="remember">Remember me</label>
+        <label class="form-check-label" for="flexCheckDefault" id="remember">recuerdame</label>
       </div>
-      <button class="btn btn-primary w-100 py-2, margen-inferior" type="submit" style="margin-bottom: 10px;">Sign in</button>
+      <button class="btn btn-primary w-100 py-2, margen-inferior" type="submit" style="margin-bottom: 10px;">Iniciar sesión</button>
       <a href="/vistas/registro.php" class="btn btn-primary w-100 py-2">Crear cuenta</a>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
     </form>
