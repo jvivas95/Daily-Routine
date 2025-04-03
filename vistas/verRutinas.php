@@ -20,6 +20,7 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +33,9 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&display=swap" rel="stylesheet">
     <script src="../assets/js/contact.js"></script>
 
     <!-- Custom styles for this template -->
@@ -48,12 +51,14 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
         ?>
         <!-- SE MUESTRAN LAS PUBLICACIONES DE LA BASE DE DATOS  -->
         <div id="contenedorPublicaciones">
-            <div id="tituloRutinas"> <p>RUTINAS</p> </div>
+            <div id="tituloRutinas" class="text-center my-4">
+                <p>RUTINAS</p>
+            </div>
             <div id="container">
                 <?php if (count($publicaciones) > 0): ?>
                     <?php foreach ($publicaciones as $publicacion): ?>
                         <div id="caja">
-                        <div>Publicado por: <?php echo htmlspecialchars($publicacion['usuario']); ?></div>
+                            <div>Publicado por: <?php echo htmlspecialchars($publicacion['usuario']); ?></div>
                             <div id="tituloPublicacion"><?php echo htmlspecialchars($publicacion['titulo']); ?></div>
                             <div id="separadorCabecera"></div>
                             <div id="cuerpoPublicacion">
@@ -64,13 +69,13 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                                 <div id="botonFacebook">
                                     <!-- Botón para compartir en Facebook -->
                                     <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?" target="_blank">
-                                    <i class="fab fa-facebook-f" ></i> <!-- Icono de Facebook -->
+                                        <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
                                     </a>
                                 </div>
                                 <div>
                                     <!-- Botón para compartir en Twitter -->
                                     <a class="share-button twitter" href="https://twitter.com/intent/tweet?text=" target="_blank">
-                                    <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+                                        <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
                                     </a>
                                 </div>
                                 <div id="fechaPublicacion">
@@ -81,7 +86,7 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p>No hay publicaciones disponibles.</p>
-                <?php endif; ?>  
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -99,4 +104,5 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/sidebars.js"></script>
 </body>
+
 </html>
