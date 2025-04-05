@@ -44,7 +44,7 @@ error_reporting(E_ALL);
         <img class="mb-4" src="../assets/img/logo.png" alt="" width="300px">
       </a>
       <!-- Punto de depuración: Título del formulario -->
-      <h1 class="h3 mb-3 fw-normal" id="registro">Registro de cuenta</h1>
+      <h1 class="h3 mb-3 fw-normal text-center mt-4" id="titulo">Registro de cuenta</h1>
 
       <!-- CAMPOS PARA RELLENAR -->
       <div class="form-floating mb-2">

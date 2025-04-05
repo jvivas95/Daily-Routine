@@ -56,7 +56,7 @@
       <a href="/index.php" class="mt-15">
         <img class="mb-4" src="/assets/img/logo.png" alt="logo" width="300px">
       </a>
-      <h1 class="h3 mb-3 fw-normal text-center" id="sign-in">Iniciar sesión</h1>
+      <h1 class="h3 mt-4 mb-3 fw-normal text-center" id="titulo">Iniciar sesión</h1>
 
 
       <div class="form-floating">
