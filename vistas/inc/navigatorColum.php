@@ -1,8 +1,7 @@
 <!-- Custom styles for this template -->
-<link href="../assets/css/sidebars.css" rel="stylesheet">
-<link href="../assets/css/navBar.css" rel="stylesheet">
+<link href="/../assets/css/sidebars.css" rel="stylesheet">
 
-<div class="body-main">
+<div class="body-main" id="bodyMain">
   <!-- ICONOS SVG -->
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="logo" viewBox="0 0 118 94">
@@ -33,7 +32,7 @@
     <h1 class="visually-hidden">Sidebars examples</h1>
 
     <!-- Navigator colum-->
-    <div id="navigatorColum" class="d-flex flex-column flex-shrink-0 p-3" style="width: auto;">
+    <div id="navigatorColum" class="d-flex flex-column flex-shrink-0" style="width: auto;">
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <!-- HOME -->

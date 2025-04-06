@@ -3,10 +3,8 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 3rem;
-  background-color: #FFA366; /* Puedes ajustar el color según tus preferencias */
+  background-color: #ffa366; /* Puedes ajustar el color según tus preferencias */
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -14,22 +12,18 @@ body {
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
-  
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
-  
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
-  background-image: url('../img/logo.png');
-
+  background-image: url("../img/logo.png");
 }
-
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -38,15 +32,13 @@ body {
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
-
 }
 /* rtl:begin:ignore */
 .marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -58,7 +50,7 @@ body {
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
 .featurette-heading {
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
 }
 
 /* rtl:end:remove */
@@ -79,8 +71,7 @@ body {
   }
 }
 
-
-.row{
+.row {
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
@@ -103,10 +94,11 @@ body {
 .b-example-divider {
   width: 100%;
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(1, 1, 1, 0.1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  box-shadow: inset 0 0.5em 1.5em rgba(1, 1, 1, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .b-example-vr {
@@ -116,7 +108,7 @@ body {
 }
 
 .bi {
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
   fill: currentColor;
 }
 
@@ -168,16 +160,14 @@ body {
   margin: 0.5rem 0;
 }
 
-.btn-primary{
-  background-color: #FFA366;
+.btn-primary {
+  background-color: #ffa366;
   border-color: rgb(34, 30, 30);
   border-width: 0.13rem;
   transition: background-color 0.7s ease, border-color 0.7s ease; /* Añade una transición suave */
-
 }
 
-.btn-primary:hover{
-  background-color:  rgb(34, 30, 30);
-  border-color: #FFA366;
-  
+.btn-primary:hover {
+  background-color: rgb(34, 30, 30);
+  border-color: #ffa366;
 }

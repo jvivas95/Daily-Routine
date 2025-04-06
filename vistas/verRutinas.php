@@ -39,15 +39,16 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
     <script src="../assets/js/contact.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/verRutinas.css" rel="stylesheet">
+    <link href="/../assets/css/verRutinas.css" rel="stylesheet">
+
 </head>
 
 <body>
     <div id="paginaPublicaciones">
         <!-- SIDEBAR -->
         <?php
-        include "inc/header.php";
-        include("inc/navigatorColum.php");
+        include_once __DIR__ . "/inc/header.php";
+        include_once __DIR__ . "/inc/navigatorColum.php";
         ?>
         <!-- SE MUESTRAN LAS PUBLICACIONES DE LA BASE DE DATOS  -->
         <div id="contenedorPublicaciones">
@@ -89,6 +90,7 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                 <?php endif; ?>
             </div>
         </div>
+        <?php include_once __DIR__ . "/inc/navigatorFooter.php" ?>;
     </div>
 
     <script>
