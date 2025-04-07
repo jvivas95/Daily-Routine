@@ -1,0 +1,11 @@
+#navigatorFooter {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  background-color: black;
+  padding-top: 1rem;
+  padding-bottom: 0.3rem;
+}

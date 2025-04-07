@@ -86,12 +86,13 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No hay publicaciones disponibles.</p>
+                    <p>No hay publicaciones disponibles</p>
                 <?php endif; ?>
             </div>
         </div>
-        <?php include_once __DIR__ . "/inc/navigatorFooter.php" ?>;
     </div>
+    <?php include_once __DIR__ . "/inc/navigatorFooter.php" ?>
+
 
     <script>
         // Evento al hacer scroll en la página

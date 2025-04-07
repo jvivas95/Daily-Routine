@@ -72,7 +72,6 @@ header {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #ffa366;
   padding-top: 60px;
 }
 
@@ -84,10 +83,15 @@ header {
   padding-bottom: 5px;
   max-height: auto;
   overflow-y: auto;
-  font-family: verdana;
+  font-family: monospace;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border: solid black 0.15rem;
+  border-radius: 1rem;
 }
+
 #caja {
-  width: 80%;
+  width: 100%;
   height: auto;
   border: 3px solid black;
   color: black;
@@ -223,13 +227,13 @@ header {
 
 @media (max-width: 768px) {
   #tituloRutinas p {
-    font-size: 1.5rem; /* Tamaño más pequeño para pantallas medianas */
+    font-size: 2.5rem; /* Tamaño más pequeño para pantallas medianas */
   }
 }
 
 @media (max-width: 576px) {
   #tituloRutinas p {
-    font-size: 1.2rem; /* Tamaño más pequeño para pantallas pequeñas */
+    font-size: 2.2rem; /* Tamaño más pequeño para pantallas pequeñas */
   }
 }
 @media (max-width: 768px) {
