@@ -8,7 +8,7 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
 
 ?>
 <!doctype html>
-<html lang="es" data-bs-theme="auto">
+<html lang="es">
 
 <head>
   <!-- Scripts -->
@@ -36,8 +36,8 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   </svg>
   <!-- Header -->
-  <header data-bs-theme="dark">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <header>
+    <nav class="navbar navbar-expand-md">
       <div class="container-fluid">
         <a href="/index.php">
           <img src="/assets/img/logo_nav_bar.png" style="padding: 5px;" alt="Logo" />

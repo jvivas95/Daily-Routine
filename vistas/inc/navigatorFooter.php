@@ -1,10 +1,10 @@
 <link href="/assets/css/navigatorFooter.css" rel="stylesheet">
 
-<div id="navigatorFooter" class="d-flex justify-content-around align-items-center">
+<div id="navigatorFooter" class="d-flex justify-content-around align-items-center ">
   <ul class="nav">
     <!-- HOME -->
     <li class="nav-item">
-      <a href="/vistas/verRutinas.php" class="nav-link">
+      <a href="/vistas/verRutinas.php" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="26" height="26">
           <use xlink:href="#home" />
         </svg>
@@ -26,7 +26,7 @@
       </li> -->
     <!-- CREATE -->
     <li class="nav-item">
-      <a href="/vistas/crearRutina.php" class="nav-link">
+      <a href="/vistas/crearRutina.php" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="26" height="26">
           <use xlink:href="#create" />
         </svg>
@@ -49,7 +49,7 @@
 
     <!-- PROFILE -->
     <li class="nav-item">
-      <a href="/vistas/perfilUser.php" class="nav-link">
+      <a href="/vistas/perfilUser.php" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="24" height="24">
           <use xlink:href="#perfil" />
         </svg>

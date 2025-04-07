@@ -87,6 +87,12 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p>No hay publicaciones disponibles</p>
+                    <div><dotlottie-wc
+                            src="https://lottie.host/ec3315fa-42cc-4a0c-9832-72062aed3455/KuI5rkTvGQ.lottie"
+                            autoplay
+                            loop></dotlottie-wc>
+                    </div>
+
                 <?php endif; ?>
             </div>
         </div>
@@ -103,6 +109,11 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
             }
         });
     </script>
+    <script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js"
+        type="module"></script>
+
+
 
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/sidebars.js"></script>

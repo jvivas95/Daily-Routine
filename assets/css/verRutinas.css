@@ -1,15 +1,5 @@
-* {
-  color: rgb(255, 255, 255);
-}
 body {
   overflow-x: hidden;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
 }
 
 #showCalendarButton,
@@ -86,18 +76,15 @@ header {
   font-family: monospace;
   padding-left: 3rem;
   padding-right: 3rem;
-  border: solid black 0.15rem;
-  border-radius: 1rem;
+  color: black;
 }
 
 #caja {
   width: 100%;
   height: auto;
-  border: 3px solid black;
-  color: black;
   margin: 0 auto;
   margin-bottom: 10px;
-  background-color: rgba(255, 255, 255, 0.349);
+  background-color: rgb(255 255 255 / 18%);
   border-radius: 4px;
 }
 #tituloPublicacion {
@@ -107,7 +94,7 @@ header {
 }
 #separadorCabecera {
   width: 80%; /* Ajustar según sea necesario */
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid rgb(96 96 96);
   margin-top: 5px; /* Espacio entre la información y el separador */
   margin: 0 auto;
 }
