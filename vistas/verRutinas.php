@@ -59,7 +59,6 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                 <?php if (count($publicaciones) > 0): ?>
                     <?php foreach ($publicaciones as $publicacion): ?>
                         <div id="caja">
-                            <div>Publicado por: <?php echo htmlspecialchars($publicacion['usuario']); ?></div>
                             <div id="tituloPublicacion"><?php echo htmlspecialchars($publicacion['titulo']); ?></div>
                             <div id="separadorCabecera"></div>
                             <div id="cuerpoPublicacion">
@@ -67,20 +66,23 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                             </div>
                             <!-- Mostrar el nombre del usuario -->
                             <div id="piePublicacion">
-                                <div id="botonFacebook">
-                                    <!-- Botón para compartir en Facebook -->
-                                    <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?" target="_blank">
-                                        <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
-                                    </a>
-                                </div>
-                                <div>
-                                    <!-- Botón para compartir en Twitter -->
-                                    <a class="share-button twitter" href="https://twitter.com/intent/tweet?text=" target="_blank">
-                                        <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
-                                    </a>
-                                </div>
+                                <div id="header-publicacion">Publicado por: <?php echo htmlspecialchars($publicacion['usuario']); ?></div>
                                 <div id="fechaPublicacion">
-                                    <small><?php echo htmlspecialchars($publicacion['fechaHora']); ?></small>
+                                    <small>
+                                        <?php
+                                        echo htmlspecialchars($publicacion['fechaHora']);
+
+                                        $fechaHoraPublicacion = new DateTime($publicacion['fechaHora']);
+                                        $fechaActual = new DateTime();
+                                        $diferenciaFechaHoraPublicacion = $fechaHoraPublicacion->diff($fechaActual);
+
+                                        if ($diferenciaFechaHoraPublicacion->days >= 7) {
+                                            echo $fechaHoraPublicacion->format('j \d\e F');
+                                        } elseif ($diferenciaFechaHoraPublicacion->days > 0) {
+                                            echo 'Hace ' . $diferenciaFechaHoraPublicacion->days . ' días';
+                                        }
+                                        ?>
+                                    </small>
                                 </div>
                             </div>
                         </div>
