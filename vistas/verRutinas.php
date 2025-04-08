@@ -70,17 +70,22 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                                 <div id="fechaPublicacion">
                                     <small>
                                         <?php
-                                        echo htmlspecialchars($publicacion['fechaHora']);
-
                                         $fechaHoraPublicacion = new DateTime($publicacion['fechaHora']);
                                         $fechaActual = new DateTime();
                                         $diferenciaFechaHoraPublicacion = $fechaHoraPublicacion->diff($fechaActual);
 
                                         if ($diferenciaFechaHoraPublicacion->days >= 7) {
                                             echo $fechaHoraPublicacion->format('j \d\e F');
-                                        } elseif ($diferenciaFechaHoraPublicacion->days > 0) {
+                                        } elseif ($diferenciaFechaHoraPublicacion->days > 1) {
                                             echo 'Hace ' . $diferenciaFechaHoraPublicacion->days . ' días';
+                                        } elseif ($diferenciaFechaHoraPublicacion->h > 0) {
+                                            echo 'Hace ' . $diferenciaFechaHoraPublicacion->h . ' horas';
+                                        } elseif ($diferenciaFechaHoraPublicacion->i > 0) {
+                                            echo 'Hace ' . $diferenciaFechaHoraPublicacion->i . ' minutos';
+                                        } else {
+                                            echo 'Hace un momento';
                                         }
+
                                         ?>
                                     </small>
                                 </div>
@@ -88,12 +93,14 @@ $publicaciones = $servicioPublicaciones->listarPublicaciones();
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No hay publicaciones disponibles</p>
-                    <div><dotlottie-wc
+                    <div id="dotlottie">
+                        <dotlottie-wc
                             src="https://lottie.host/ec3315fa-42cc-4a0c-9832-72062aed3455/KuI5rkTvGQ.lottie"
                             autoplay
-                            loop></dotlottie-wc>
+                            loop>
+                        </dotlottie-wc>
                     </div>
+                    <p class="text-center">No hay publicaciones disponibles</p>
 
                 <?php endif; ?>
             </div>

@@ -193,13 +193,13 @@ body {
 
 @media (max-width: 768px) {
   #tituloRutinas p {
-    font-size: 2.5rem; /* Tamaño más pequeño para pantallas medianas */
+    font-size: 4.6rem; /* Tamaño más pequeño para pantallas medianas */
   }
 }
 
 @media (max-width: 576px) {
   #tituloRutinas p {
-    font-size: 2.2rem; /* Tamaño más pequeño para pantallas pequeñas */
+    font-size: 3.2rem; /* Tamaño más pequeño para pantallas pequeñas */
   }
 }
 @media (max-width: 768px) {
@@ -218,4 +218,12 @@ body {
   #navigatorFooter {
     display: none !important; /* Forzar la ocultación */
   }
+}
+
+#loopCarga p {
+  text-align: center;
+}
+#dotlottie {
+  max-width: 45rem;
+  margin: 0 auto;
 }
