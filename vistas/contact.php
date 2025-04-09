@@ -1,105 +1,106 @@
-
-<?php 
+<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include_once __DIR__ . "/../modelos/servicios/servicioPublicaciones.php";
+include_once __DIR__ . "/../lib/autenticacion.php";
+include_once __DIR__ . "/../config/cargarEnv.php";
+
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.122.0">
-    <title>Contacto</title>
+<head>
+  <script src="/assets/js/color-modes.js"></script>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.122.0">
+  <title>Contacto</title>
 
-    <script src="../assets/js/contact.js"></script>
-    
-  </head>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 
-  <body>
+  <script src="/assets/js/contact.js"></script>
 
-  <?php
-  include "inc/header.php";
-  include "inc/navigatorColum.php";
-  ?>
+</head>
+
+<body>
   <!-- FORM -->
   <div class="container">
     <div class="contact-info">
-        <form action="#" method="POST">
-            <div class="form-group">
-                <img id="logoContainer" src="../assets/img/logo.png" alt="logoForm">
-            </div>
-            <div class="form-group">
-              <b>Teléfono:</b>
-              <a> +34 999-999-999</a>
-            </div>
-            <div class="form-group">
-              <b>eMail:</b>
-              <a>info@dailyroutine.com</a>                
-            </div>
-            <div class="form-group">
-              <b>Horario:</b>
-                <a>Lunes - Viernes</a>
-                <a>08:00 - 20:00</a>
-            </div>
-        </form>
+      <form action="#" method="POST">
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <b>Teléfono:</b>
+          <a> +34 999-999-999</a>
+        </div>
+        <div class="form-group">
+          <b>eMail:</b>
+          <a>info@dailyroutine.com</a>
+        </div>
+        <div class="form-group">
+          <b>Horario:</b>
+          <a>Lunes - Viernes</a>
+          <a>08:00 - 20:00</a>
+        </div>
+      </form>
     </div>
     <div class="contact-form">
       <h2>Formulario de Contacto</h2>
-      <form action="../modelos/modeloContacto.php" method="POST" id="formularioContacto">
-          <div class="form-group">
-              <label for="nombre">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" required>
-          </div>
-          <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-              <label for="mensaje">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" required></textarea>
-          </div>
+      <form action="/../modelos/modeloContacto.php" method="POST" id="formularioContacto">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
 
-          <?php
-// Verificar si hay errores en la URL
-if (isset($_GET['errores'])) {
-    // Decodificar los errores
-    $errores = json_decode(urldecode($_GET['errores']), true);
-    // Mostrar los errores debajo del formulario
-    echo '<div class="alert alert-danger" role="alert">';
-    echo '<ul>';
-    foreach ($errores as $error) {
-        echo "<li>$error</li>";
-    }
-    echo '</ul>';
-    echo '</div>';
-}
-?>
+        <?php
+        // Verificar si hay errores en la URL
+        if (isset($_GET['errores'])) {
+          // Decodificar los errores
+          $errores = json_decode(urldecode($_GET['errores']), true);
+          // Mostrar los errores debajo del formulario
+          echo '<div class="alert alert-danger" role="alert">';
+          echo '<ul>';
+          foreach ($errores as $error) {
+            echo "<li>$error</li>";
+          }
+          echo '</ul>';
+          echo '</div>';
+        }
+        ?>
 
 
-      
-          <button type="submit">Enviar</button>
+
+        <button type="submit">Enviar</button>
       </form>
-  </div>
-</div>
-    
-
-</main>
-
-
-
-
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="../assets/js/sidebars.js"></script>
     </div>
+  </div>
 
-  </body>
+
+  </main>
+
+
+
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../assets/js/sidebars.js"></script>
+  </div>
+
+</body>
+
 </html>

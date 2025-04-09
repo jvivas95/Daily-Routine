@@ -64,6 +64,22 @@ header {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
+@media (max-width: 768px) {
+  #navigatorColum {
+    display: none !important; /* Forzar la ocultación */
+  }
+  #separatorColum {
+    display: none !important; /* Forzar la ocultación */
+  }
+  #tituloRutinas p {
+    font-size: 4.6rem !important; /* Tamaño más pequeño para pantallas medianas */
+  }
+}
+@media (max-width: 576px) {
+  #tituloRutinas p {
+    font-size: 3.2rem !important; /* Tamaño más pequeño para pantallas pequeñas */
+  }
+}
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
   .carousel-caption p {
@@ -77,6 +93,17 @@ header {
   }
 }
 
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+  #navigatorFooter {
+    display: none !important; /* Forzar la ocultación */
+  }
+}
+
+/* FIN RESPONSIVE CSS*/
+
 .row {
   padding-left: 50px;
   padding-right: 50px;
@@ -89,12 +116,6 @@ header {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
 }
 
 .b-example-divider {
@@ -177,3 +198,126 @@ header {
   background-color: rgb(34, 30, 30);
   border-color: #ffa366;
 }
+
+/* ESTILOS PARA EL NAVIGATORCOLUM */
+
+#navigatorColum {
+  background-color: #ffa366;
+  padding-top: 5.2rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  padding-bottom: 1.5rem;
+}
+
+/* FIN ESTILOS PARA EL NAVIGATORCOLUM */
+
+/* ESTILOS PARA EL SEPARATORCOLUM */
+
+#separatorColum {
+  background-color: rgba(33, 37, 41, 1);
+  border-right: solid 2px;
+  border-left: solid 2px;
+  border-color: black;
+}
+
+/* FIN ESTILOS PARA EL SEPARATORCOLUM */
+
+/* ESTILOS PARA EL CONTENEDOR DE PUBLICACIONES */
+/*Imagen para cuando no hay publicaciones*/
+#loopCarga p {
+  text-align: center;
+}
+#dotlottie {
+  max-width: 45rem;
+  margin: 0 auto;
+}
+#container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  max-height: auto;
+  overflow-y: auto;
+  font-family: monospace;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: black;
+}
+#caja {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: rgb(255 255 255 / 18%);
+  border-radius: 4px;
+  padding: 0.6rem;
+}
+#contenedorPublicaciones {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+#tituloRutinas {
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Anton", sans-serif;
+  font-style: normal;
+}
+#tituloRutinas p {
+  font-size: 5.5rem; /* Tamaño base */
+  font-weight: bold;
+  color: white; /* Color del relleno de las letras */
+  text-align: center;
+  -webkit-text-stroke: 1px black; /* Borde negro alrededor de las letras */
+  text-stroke: 1px black; /* Compatibilidad adicional */
+}
+#tituloPublicacion {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+#separadorCabecera {
+  width: 80%; /* Ajustar según sea necesario */
+  border-bottom: 3px solid rgb(96 96 96);
+  margin-top: 5px; /* Espacio entre la información y el separador */
+  margin: 0 auto;
+}
+#cuerpoPublicacion {
+  margin: 10px;
+  font-size: 1.2rem;
+}
+#piePublicacion {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+}
+#nombreUsuario {
+  font-size: 0.8rem;
+}
+#fechaPublicacion {
+  width: auto;
+  height: auto;
+  float: right;
+  margin-left: auto;
+}
+
+/* FIN ESTILOS PARA EL CONTENEDOR DE PUBLICACIONES */
+
+/* ESTILOS PARA EL NAVIGATORFOOTER */
+
+#navigatorFooter {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  background-color: black;
+  padding-top: 1rem;
+  padding-bottom: 0.3rem;
+}
+/* FIN NAVIGATORFOOTER */

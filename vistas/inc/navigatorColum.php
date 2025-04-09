@@ -1,5 +1,4 @@
 <!-- Custom styles for this template -->
-<link href="/../assets/css/sidebars.css" rel="stylesheet">
 
 <div class="body-main" id="bodyMain">
   <!-- ICONOS SVG -->
