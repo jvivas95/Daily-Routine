@@ -258,12 +258,12 @@ header {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 70px;
 }
 #tituloRutinas {
   text-align: center;
-  margin: 20px 0;
+  margin-top: 40px;
   font-family: "Anton", sans-serif;
   font-style: normal;
 }
@@ -274,10 +274,6 @@ header {
   text-align: center;
   -webkit-text-stroke: 1px black; /* Borde negro alrededor de las letras */
   text-stroke: 1px black; /* Compatibilidad adicional */
-}
-#tituloPublicacion {
-  font-weight: bold;
-  font-size: 1.4rem;
 }
 #separadorCabecera {
   width: 80%; /* Ajustar según sea necesario */
@@ -321,3 +317,98 @@ header {
   padding-bottom: 0.3rem;
 }
 /* FIN NAVIGATORFOOTER */
+
+/* ESTILOS PARA CONTENEDOR CREAR PUBLICACION */
+#cabeceraPublicacion {
+  display: flex;
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+}
+#tituloPublicacion {
+  text-align: center;
+  background-color: #00000000;
+  color: #000;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  margin: 8px;
+  font-size: 1.4rem;
+}
+#publicacion {
+  width: auto;
+  height: auto;
+  padding-top: 0.5rem;
+}
+#textoPublicacion {
+  margin: 6px;
+  width: 98%;
+  height: 100px;
+  background-color: #00000000;
+  color: #000;
+  border-radius: 0.5rem;
+}
+#separadorPublicacion {
+  width: 95%; /* Ajustar según sea necesario */
+  border-bottom: 3px solid black;
+  margin-top: 5px; /* Espacio entre la información y el separador */
+  margin: 0 auto;
+}
+#contenedorBotones {
+  display: flex;
+  justify-content: right;
+}
+#publicar {
+  width: 9rem;
+  height: 3rem;
+  padding: 4px;
+  margin-top: 30px;
+  background-color: #f1ad80;
+  border: 2px solid black;
+  font-family: monospace;
+  font-size: 1.3rem;
+  font-weight: 2px;
+  border-radius: 0.5rem;
+  color: black;
+  transition: background-color 0.7s ease, border 0.2s ease; /* Añade una transición suave */
+}
+#publicar:hover {
+  background-color: rgba(255, 255, 255, 0.733);
+  border: 3px solid black;
+}
+/* FIN ESTILOS PARA CONTENEDOR CREAR PUBLICACION */
+
+/* ESTILOS PARA CONTENEDOR BORRAR/MODIFICAR PUBLICACION */
+
+#botonesModificacion {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#botonModificar {
+  width: auto;
+  height: 3rem;
+  border: 3px solid black;
+  font-weight: bold;
+  background-color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+#botonModificar.cambiarColor {
+  background-color: rgb(33, 150, 101);
+  color: black;
+}
+#botonBorrar {
+  width: auto;
+  height: 3rem;
+  border: 3px solid black;
+  font-weight: bold;
+  background-color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+#botonBorrar.cambiarColor {
+  background-color: rgb(185, 42, 42);
+  color: black;
+}
+
+/* FIN ESTILOS PARA CONTENEDOR BORRAR/MODIFICAR PUBLICACION */

@@ -1,5 +1,5 @@
 <div id="contenedorPublicaciones">
-    <div id="tituloRutinas" class="text-center my-4">
+    <div id="tituloRutinas" class="text-center">
         <p>RUTINAS</p>
     </div>
     <div id="container">

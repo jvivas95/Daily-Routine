@@ -20,17 +20,6 @@ $usuarioId = Autenticacion::obtenerUsuario();
 
 // Obtener publicaciones
 $publicaciones = $servicioPublicaciones->listarPublicacionesUsuario($usuarioId);
-
-// Crear eventos para el calendario
-$events = [];
-foreach ($publicaciones as $publicacion) {
-  $events[] = [
-    'title' => htmlspecialchars($publicacion['titulo']),
-    'start' => htmlspecialchars($publicacion['fechaHora']),
-    'description' => htmlspecialchars($publicacion['descripcion'])
-  ];
-}
-$eventsJson = json_encode($events);
 ?>
 
 <!doctype html>
@@ -55,7 +44,7 @@ $eventsJson = json_encode($events);
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
 
   <!-- Custom styles for this template -->
-  <link href="../assets/css/perfilUser.css" rel="stylesheet">
+  <link href="/../assets/css/perfilUser.css" rel="stylesheet">
 
 </head>
 
@@ -72,8 +61,6 @@ $eventsJson = json_encode($events);
       <div id="tituloRutinas">
         <p>MIS RUTINAS</p>
       </div>
-      <button id="showCalendarButton">Mostrar calendario</button>
-      <button id="hideCalendarButton" style="display: none;">Ocultar calendario</button>
       <div id="container">
         <?php if (count($publicaciones) > 0): ?>
           <?php foreach ($publicaciones as $publicacion): ?>
@@ -165,10 +152,9 @@ $eventsJson = json_encode($events);
     });
 
     //CONFIRMACIÓN BORRAR PUBLICACION
-    function confirmarBorrado(){
+    function confirmarBorrado() {
       return confirm("¿Seguro que quieres borrar tu publicación?");
     }
-
   </script>
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebars.js"></script>

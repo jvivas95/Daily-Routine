@@ -27,20 +27,24 @@ include_once __DIR__ . ("/inc/navigatorColum.php");
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&display=swap" rel="stylesheet">
+
 
   <script src="../assets/js/contact.js"></script>
 
   <!-- Custom styles for this template -->
-  <link href="../assets/css/crearRutina.css" rel="stylesheet">
+  <link href="../assets/css/custom.css" rel="stylesheet">
 
 </head>
 
 <body> <!-- CABECERA CREAR PUBLICACIONES -->
   <div id="contenedorPublicaciones">
-    <div id="tituloCrearRutinas">NUEVA PUBLICACION</div>
+    <div id="tituloRutinas">
+      <p>NUEVA RUTINA</p>
+    </div>
     <form method="POST" action="/modelos/modeloCrearPubli.php">
       <div id="container">
-        <div class="caja">
+        <div id="caja">
           <div id="cabeceraPublicacion">
             <div id="infoCabecera">
               <div>
@@ -57,7 +61,6 @@ include_once __DIR__ . ("/inc/navigatorColum.php");
           <div id="publicacion">
             <textarea id="textoPublicacion" name="descripcion" placeholder="Introducir texto de la publicación"></textarea>
           </div>
-          <div id="fechaPublicacion" name="fechaHora"></div>
         </div>
         <div id="contenedorBotones">
           <button id="publicar" type="submit">¡PUBLICAR!</button>
@@ -65,6 +68,9 @@ include_once __DIR__ . ("/inc/navigatorColum.php");
       </div>
     </form>
   </div>
+  <?php
+  include_once __DIR__ . "/inc/navigatorFooter.php";
+  ?>
   <script>
     // Evento al hacer scroll en la página
     window.addEventListener("scroll", function() {

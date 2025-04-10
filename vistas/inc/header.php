@@ -29,6 +29,7 @@ if (!isset($_SESSION["usuario"]) && basename($_SERVER['SCRIPT_NAME']) != 'index.
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="/assets/css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&display=swap" rel="stylesheet">
 </head>
 
 <body>
