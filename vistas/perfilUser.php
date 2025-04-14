@@ -40,11 +40,8 @@ $publicaciones = $servicioPublicaciones->listarPublicacionesUsuario($usuarioId);
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
-
   <!-- Custom styles for this template -->
-  <link href="/../assets/css/perfilUser.css" rel="stylesheet">
+  <link href="/../assets/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -53,8 +50,8 @@ $publicaciones = $servicioPublicaciones->listarPublicacionesUsuario($usuarioId);
   <div id="paginaPublicaciones">
     <!-- SIDEBAR -->
     <?php
-    include "inc/header.php";
-    include("inc/navigatorColum.php");
+    include_once __DIR__ . "/inc/header.php";
+    include_once __DIR__ . "/inc/navigatorColum.php";
     ?>
     <!-- SE MUESTRAN LAS PUBLICACIONES DE LA BASE DE DATOS  -->
     <div id="contenedorPublicaciones">
@@ -88,77 +85,26 @@ $publicaciones = $servicioPublicaciones->listarPublicacionesUsuario($usuarioId);
             </div>
           <?php endforeach; ?>
         <?php else: ?>
-          <p>No hay publicaciones disponibles.</p>
+          <div id="dotlottie">
+            <dotlottie-wc
+              src="https://lottie.host/ec3315fa-42cc-4a0c-9832-72062aed3455/KuI5rkTvGQ.lottie"
+              autoplay
+              loop>
+            </dotlottie-wc>
+          </div>
+          <p class="text-center">No hay publicaciones disponibles</p>
         <?php endif; ?>
       </div>
     </div>
-
-
-    <div id="calendarContainer">
-      <div id="calendar"></div>
-    </div>
-
+    <?php
+    include_once __DIR__ . "/inc/navigatorFooter.php";
+    ?>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendarContainer = document.getElementById('calendarContainer');
-      var showCalendarButton = document.getElementById('showCalendarButton');
-      var hideCalendarButton = document.getElementById('hideCalendarButton');
-      var calendarVisible = false; // Inicialmente, el calendario está oculto
-
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: <?php echo $eventsJson; ?>,
-        eventColor: 'green',
-        dayHeaderFormat: {
-          weekday: 'narrow'
-        }, // Mostrar solo las iniciales de los días de la semana
-        themeSystem: 'standard' // Utilizar el sistema de tema estándar para personalizar el calendario
-      });
-
-      // Event listener para el botón "Mostrar calendario"
-      showCalendarButton.addEventListener('click', function() {
-        calendarContainer.style.display = 'block'; // Mostrar el contenedor del calendario
-        showCalendarButton.style.display = 'none'; // Ocultar el botón "Mostrar calendario"
-        hideCalendarButton.style.display = 'inline-block'; // Mostrar el botón "Ocultar calendario"
-        calendarVisible = true; // Establecer que el calendario está visible
-        calendar.render(); // Renderizar el calendario después de hacerlo visible
-      });
-
-      // Event listener para el botón "Ocultar calendario"
-      hideCalendarButton.addEventListener('click', function() {
-        calendarContainer.style.display = 'none'; // Ocultar el contenedor del calendario
-        showCalendarButton.style.display = 'inline-block'; // Mostrar el botón "Mostrar calendario"
-        hideCalendarButton.style.display = 'none'; // Ocultar el botón "Ocultar calendario"
-        calendarVisible = false; // Establecer que el calendario está oculto
-      });
-
-      // Event listener para hacer clic en un evento del calendario
-      calendarEl.addEventListener('click', function(info) {
-        if (info.target.classList.contains('fc-daygrid-event')) { // Si se hace clic en un evento del calendario
-          var eventTitle = info.target.innerText.trim(); // Obtener el título del evento (sin espacios al inicio y al final)
-          var rutinaElement = document.getElementById(eventTitle); // Buscar el elemento de la rutina por su ID
-          if (rutinaElement) { // Si se encuentra el elemento de la rutina
-            rutinaElement.classList.add('clicked'); // Aplicar la clase clicked para el efecto de rebote
-            setTimeout(function() { // Después de 300ms
-              rutinaElement.classList.remove('clicked'); // Quitar la clase clicked
-            }, 300);
-          }
-        }
-      });
-
-      calendar.render();
-    });
-
-    //CONFIRMACIÓN BORRAR PUBLICACION
-    function confirmarBorrado() {
-      return confirm("¿Seguro que quieres borrar tu publicación?");
-    }
-  </script>
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebars.js"></script>
   <script src="../assets/js/perfilUser.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+
 
 </body>
 
