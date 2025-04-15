@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . ("/../lib/autenticacion.php");
+include_once __DIR__ . "/../lib/autenticacion.php";
 include_once __DIR__ . "/../config/cargarEnv.php";
 
 //VERIFICAR SI EL USUARIO ESTA AUTENTICADO
@@ -7,8 +7,8 @@ if (!Autenticacion::estaAutenticado()) {
   header("Location: /vistas/login.php");
 }
 
-include_once __DIR__ . ("/inc/header.php");
-include_once __DIR__ . ("/inc/navigatorColum.php");
+include_once __DIR__ . "/inc/header.php";
+include_once __DIR__ . "/inc/navigatorColum.php";
 
 ?>
 <!doctype html>
@@ -26,14 +26,14 @@ include_once __DIR__ . ("/inc/navigatorColum.php");
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/../assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&display=swap" rel="stylesheet">
 
 
-  <script src="../assets/js/contact.js"></script>
+  <script src="/../assets/js/contact.js"></script>
 
   <!-- Custom styles for this template -->
-  <link href="../assets/css/custom.css" rel="stylesheet">
+  <link href="/../assets/css/custom.css" rel="stylesheet">
 
 </head>
 

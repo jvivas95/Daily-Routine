@@ -1,5 +1,3 @@
-<link href="/assets/css/navigatorFooter.css" rel="stylesheet">
-
 <div id="navigatorFooter" class="d-flex justify-content-around align-items-center ">
   <ul class="nav">
     <!-- HOME -->

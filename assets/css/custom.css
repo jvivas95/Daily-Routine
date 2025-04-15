@@ -389,26 +389,28 @@ header {
 #botonModificar {
   width: auto;
   height: 3rem;
-  border: 3px solid black;
-  font-weight: bold;
-  background-color: black;
+  border: 3px solid rgb(0, 0, 0);
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 0.5rem;
   transition: background-color 0.5s, color 0.5s;
 }
 #botonModificar.cambiarColor {
   background-color: rgb(33, 150, 101);
-  color: black;
+  color: white;
 }
 #botonBorrar {
   width: auto;
   height: 3rem;
-  border: 3px solid black;
-  font-weight: bold;
-  background-color: black;
+  border: 3px solid #000000;
   transition: background-color 0.5s, color 0.5s;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 0.5rem;
 }
 #botonBorrar.cambiarColor {
   background-color: rgb(185, 42, 42);
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 /* FIN ESTILOS PARA CONTENEDOR BORRAR/MODIFICAR PUBLICACION */

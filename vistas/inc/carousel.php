@@ -14,8 +14,8 @@
                 <div class="carousel-caption text-start">
                     <h1>¡Comienza con Fuerza Tu Viaje Épico!</h1>
                     <p class="opacity-75">En el camino hacia el éxito, cada pequeño paso cuenta. Descubre el poder de tus
-                    elecciones diarias y cómo, paso a paso, te acercas a grandes logros.</p>
-                    <p><a class="btn btn-lg btn-primary" href="/rutinasApp-proyecto/vistas/registro.php">Registrate</a></p>
+                        elecciones diarias y cómo, paso a paso, te acercas a grandes logros.</p>
+                    <p><a class="btn btn-lg btn-primary" href="/vistas/registro.php">Registrate</a></p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <div class="carousel-caption">
                     <h1>¡Tu Transformación a un Precio Increíble!</h1>
                     <p>¡Haz clic para conocer nuestras opciones de suscripción y dar un paso más hacia una rutina más
-                    productiva!"</p>
+                        productiva!"</p>
                     <p><a class="btn btn-lg btn-primary" href="#">Elige tu plan</a></p>
                 </div>
             </div>
@@ -40,9 +40,9 @@
                 <div class="carousel-caption text-end">
                     <h1>Opiniones: </h1>
                     <p>"Daily Routine transformó mi rutina diaria. La personalización es fácil, y los testimonios inspiran.
-                    Ofertas y redes sociales añaden un toque especial. ¡Recomiendo esta app para mejorar la productividad y
-                    la rutina!"</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Ver más</a></p>
+                        Ofertas y redes sociales añaden un toque especial. ¡Recomiendo esta app para mejorar la productividad y
+                        la rutina!"</p>
+                    <p><a class="btn btn-lg btn-primary" href="/vistas/login.php">Ver más</a></p>
                 </div>
             </div>
         </div>
