@@ -29,9 +29,6 @@ include_once __DIR__ . "/inc/navigatorColum.php";
   <link href="/../assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&display=swap" rel="stylesheet">
 
-
-  <script src="/../assets/js/contact.js"></script>
-
   <!-- Custom styles for this template -->
   <link href="/../assets/css/custom.css" rel="stylesheet">
 
@@ -78,18 +75,6 @@ include_once __DIR__ . "/inc/navigatorColum.php";
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         cargarMasPublicaciones();
       }
-    });
-
-    /* SCRIPT PARA AÑADIR LA FECHA EN LA TABLA DE crearRutina.php */
-    document.addEventListener('DOMContentLoaded', function() {
-      const fechaPublicacion = document.getElementById('fechaPublicacion');
-      const fechaActual = new Date();
-      const opcionesFecha = {
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric'
-      };
-      fechaPublicacion.textContent = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
     });
   </script>
 

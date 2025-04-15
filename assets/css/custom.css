@@ -414,3 +414,33 @@ header {
 }
 
 /* FIN ESTILOS PARA CONTENEDOR BORRAR/MODIFICAR PUBLICACION */
+
+/* INICIO ESTILOS PAGINA MODIFICAR PUBLICACION */
+
+#botones {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#botonCancelar {
+  width: 6rem;
+  height: 3rem;
+  border: 3px solid black;
+  background-color: transparent;
+  transition: background-color 0.5s, color 0.5s;
+  text-decoration: none;
+  color: black;
+  border-radius: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+#botonCancelar.cambiarColor {
+  background-color: rgb(185, 42, 42);
+  color: white;
+}
+
+/* FIN ESTILOS PAGINA MODIFICAR PUBLICACION */

@@ -15,31 +15,33 @@ if (!isset($_SESSION["usuario"])) {
   exit;
 }
 
-if (!isset($_POST["rutina_id"])) {
+if (!isset($_POST["rutina_id"]) || !isset($_POST["titulo"]) || !isset($_POST["descripcion"])) {
   echo "<script>
-        alert('No se proporcionó el ID de la publicación');
+        alert('Faltan datos para modificar la publicación');
         window.location.href = '../vistas/perfilUser.php';
       </script>";
   exit;
 }
 
 $rutina_id = $_POST["rutina_id"];
-$titulo = $_POST["titulo"];
-$descripcion = $_POST["descripcion"];
-$fechaHora = $_POST["fechaHora"];
+$titulo = htmlspecialchars($_POST["titulo"]);
+$descripcion = htmlspecialchars($_POST["descripcion"]);
 
-$publicacion = new Publicacion($rutina_id, $titulo, $descripcion, $fechaHora);
+// Crear una instancia de la publicación
+$publicacion = new Publicacion($rutina_id, $titulo, $descripcion, date("Y-m-d H:i:s"));
+
+// Crear una instancia del servicio
 $servicioPublicaciones = new servicioPublicaciones();
 
+// Llamar al método para modificar la publicación
 $resultado = $servicioPublicaciones->modificarPublicacion($publicacion);
 
 if ($resultado) {
   echo "<script>
-  window.location.href = '/vistas/perfilUser.php';
-  </script>";
+        window.location.href = '../vistas/perfilUser.php';
+      </script>";
 } else {
   echo "<script>
-        alert('Error al modificar la publicación');
         window.location.href = '../vistas/perfilUser.php';
       </script>";
 }
