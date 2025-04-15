@@ -99,18 +99,18 @@ $publicaciones = $servicioPublicaciones->listarPublicacionesUsuario($usuarioId);
                   <button id="botonModificar" class="boton" type="submit">Modificar rutina</button>
                 </form>
               </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <div id="dotlottie">
-              <dotlottie-wc
-                src="https://lottie.host/ec3315fa-42cc-4a0c-9832-72062aed3455/KuI5rkTvGQ.lottie"
-                autoplay
-                loop>
-              </dotlottie-wc>
             </div>
-            <p class="text-center">No hay publicaciones disponibles</p>
-          <?php endif; ?>
-            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <div id="dotlottie">
+            <dotlottie-wc
+              src="https://lottie.host/ec3315fa-42cc-4a0c-9832-72062aed3455/KuI5rkTvGQ.lottie"
+              autoplay
+              loop>
+            </dotlottie-wc>
+          </div>
+          <p class="text-center">No hay publicaciones disponibles</p>
+        <?php endif; ?>
       </div>
       <?php
       include_once __DIR__ . "/inc/navigatorFooter.php";
