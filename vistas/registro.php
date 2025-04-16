@@ -21,7 +21,7 @@ error_reporting(E_ALL);
   <link href="/../assets/css/sign-in.css" rel="stylesheet">
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary mt-5">
+<body class="d-flex align-items-center py-4 bg-body-tertiary mt-3">
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
@@ -44,7 +44,7 @@ error_reporting(E_ALL);
         <img class="mb-4" src="../assets/img/logo.png" alt="" width="300px">
       </a>
       <!-- Punto de depuración: Título del formulario -->
-      <h1 class="h3 mb-3 fw-normal text-center mt-4" id="titulo">Registro de cuenta</h1>
+      <h1 class="h3 fw-normal text-center mt-3" id="titulo">Registro de cuenta</h1>
 
       <!-- CAMPOS PARA RELLENAR -->
       <div class="form-floating mb-2">
@@ -117,7 +117,7 @@ error_reporting(E_ALL);
 
 
       <!-- Punto de depuración: Botón de registro -->
-      <button class="btn btn-primary w-100 py-2" type="submit">Registrarse</button>
+      <button class="btn btn-primary w-100 py-2 mt-4" type="submit">Registrarse</button>
       <!-- Boton por si ya tiene cuenta -->
       <p id="registrado"><br />Ya tienes cuenta?</p>
       <a href="login.php" class="btn btn-primary w-100 y-2">Iniciar sesión</a>

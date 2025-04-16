@@ -1,6 +1,7 @@
-#titulo {
-  color: #000000;
+body {
+  color: black;
 }
+
 .loginhtml,
 body {
   height: 100%;
@@ -112,7 +113,7 @@ body {
   border-radius: 10px;
 }
 .btn-primary {
-  background-color: #ffffffa1;
+  background-color: #eb8d00;
   border-color: rgb(34, 30, 30);
   border-width: 0.2rem;
   color: #000000;
@@ -130,4 +131,13 @@ body {
 .form-check-input {
   background-color: #f0f0f0; /* Cambia el color de fondo */
   border-color: #000; /* Cambia el color del borde */
+}
+.form-control,
+.form-select {
+  background-color: #ffffff94 !important;
+  color: black;
+}
+
+#titulo {
+  margin-bottom: 1.5rem;
 }
