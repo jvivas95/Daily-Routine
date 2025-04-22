@@ -26,9 +26,6 @@ $titulo = isset($_POST["categoria"]) ? htmlspecialchars($_POST["categoria"]) : n
 $descripcion = isset($_POST["descripcion"]) ? htmlspecialchars($_POST["descripcion"]) : null;
 $fecha = date("Y-m-d H:i:s");
 
-if (!$titulo || !$descripcion) {
-    die("Error: Todos los campos son obligatorios.");
-}
 
 // Conexión a la base de datos
 $conexion = GestorBD::conectar();

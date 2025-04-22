@@ -45,11 +45,7 @@ include_once __DIR__ . "/inc/navigatorColum.php";
           <div id="cabeceraPublicacion">
             <div id="infoCabecera">
               <div>
-                <select id="tituloPublicacion" name="categoria">
-                  <option value="Bienestar">-Bienestar</option>
-                  <option value="Productividad">-Productividad</option>
-                  <option value="Crecimiento">-Crecimiento</option>
-                </select>
+                <input type="text" id="titulo-rutina" name="titulo" placeholder="Introducir título">
               </div>
               <div id="nUsuario" name="usuarioId"></div>
             </div>
@@ -78,9 +74,10 @@ include_once __DIR__ . "/inc/navigatorColum.php";
     });
   </script>
 
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/../assets/js/bootstrap.bundle.min.js"></script>
 
-  <script src="../assets/js/sidebars.js"></script>
+  <script src="/../assets/js/sidebars.js"></script>
+  <script src="/../assets/js/crearRutina.js"></script>
 
 </body>
 

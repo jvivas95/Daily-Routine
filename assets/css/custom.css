@@ -324,14 +324,11 @@ header {
   flex-direction: column; /* Apilar los elementos verticalmente */
   align-items: center; /* Centrar horizontalmente */
 }
-#tituloPublicacion {
-  text-align: center;
+#titulo-rutina {
   background-color: #00000000;
   color: #000;
-  font-weight: bold;
   border-radius: 0.5rem;
   margin: 8px;
-  font-size: 1.4rem;
 }
 #publicacion {
   width: auto;
