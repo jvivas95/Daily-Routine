@@ -22,7 +22,7 @@ if (isset($_SESSION["usuario"])) {
 }
 
 // Validar y sanitizar los datos de entrada
-$titulo = isset($_POST["categoria"]) ? htmlspecialchars($_POST["categoria"]) : null;
+$titulo = isset($_POST["titulo"]) ? htmlspecialchars($_POST["titulo"]) : null;
 $descripcion = isset($_POST["descripcion"]) ? htmlspecialchars($_POST["descripcion"]) : null;
 $fecha = date("Y-m-d H:i:s");
 
